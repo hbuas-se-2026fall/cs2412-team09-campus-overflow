@@ -3,7 +3,7 @@
 **状态**：已接受 ｜ **驱动特征**：可维护性、可测试性、架构约束可验证 ｜ **相关场景**：FF-1 ~ FF-6
 
 > 本决策是 [ADR-001 模块化单体](001-模块化单体.md) 在代码组织层面的落地细化。
-> 它回答的问题是：六个限界上下文在 Maven 与包结构上具体怎么切、依赖怎么管、约束怎么自动化。
+> 它回答的问题是：四个限界上下文（外加共享内核与装配层）在 Maven 与包结构上具体怎么切、依赖怎么管、约束怎么自动化。
 > Lab 4 要求记录的分模块决策，即此篇。
 
 ## 背景
@@ -65,20 +65,33 @@ api 被所有层引用，自身不依赖任何业务实现
 
 禁止跨前缀 JOIN，也禁止外键跨上下文——需要的数据通过 api 查询或事件冗余。
 
+平台级表（`audit_log`、`outbox_event`、`processed_event`）不归属任何上下文，
+由共享内核与装配层共用，因此不加前缀。
+
 ### 4. 边界由 ArchUnit 自动验证
 
-co-bootstrap 里的 ArchitectureTest 把上述规则写成断言，mvn test 就会执行：
+co-bootstrap 里的 `ArchitectureTest` 把上述规则写成断言，`mvn test` 就会执行。
+下表与 `ArchitectureTest.java` 的 Javadoc 编号一一对应：
 
-| 规则 | 断言内容 |
-|---|---|
-| FF-1 | 领域层不得依赖 Spring / JPA / Jackson |
-| FF-2 | 跨上下文只允许依赖 *-api |
-| FF-3 | 模块之间不存在循环依赖 |
-| FF-4 | 领域层行覆盖率 ≥ 70%（JaCoCo 门禁） |
-| FF-5 | 实体表名必须带上下文前缀 |
-| FF-6 | 控制器不得直接依赖基础设施实现 |
+| 规则 | 断言内容 | 对应 ArchRule |
+|---|---|---|
+| FF-1 | 领域层不得依赖 Spring / JPA / Jackson | `domain_layer_is_framework_free` |
+| FF-2 | 跨上下文只允许依赖 `*-api` 或集成事件 | `contexts_communicate_only_through_published_language` |
+| FF-3 | 上下文之间不存在循环依赖 | `no_cycles_between_contexts` |
+| FF-4 | 分层方向：依赖只能由外向内 | `hexagonal_layers` |
+| FF-5 | `api` 包只依赖 JDK 与共享内核 | `api_packages_are_dependency_free` |
+| FF-6 | 实体表名必须带本上下文前缀 | `tables_use_context_prefix` |
+
+`ArchitectureTest` 实际有 **8 条** `@ArchTest`，其中 6 条对应上表；另外两条
+`controllers_live_in_interfaces_layer` 与 `entities_live_in_infrastructure_layer`
+用于校验控制器与实体的归位，未单独编号。
 
 违反任何一条，CI 直接失败。
+
+> **覆盖率门禁不在上表内。** 领域层行覆盖率 ≥ 70% 由 `backend/pom.xml` 的
+> `domain.coverage.minimum = 0.70` 与 JaCoCo 的 `jacoco:check` 执行，
+> 属于构建期门禁而非 ArchUnit 断言。两者都在 `mvn verify` 中生效，
+> 实测数据见 [../reports/coverage.md](../reports/coverage.md)。
 
 ## 后果
 
