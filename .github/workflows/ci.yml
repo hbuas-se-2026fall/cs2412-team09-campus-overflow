@@ -7,6 +7,11 @@ on:
   pull_request:
     branches: [main, develop]
 
+# 同一分支有新提交时取消仍在运行的旧流水线，避免重复消耗 Actions 分钟（指导书 8.5 节）
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   backend:
     name: 后端构建与验证
@@ -72,7 +77,8 @@ jobs:
     name: 容器镜像构建
     runs-on: ubuntu-latest
     needs: [backend, frontend]
-    if: github.event_name == 'push'
+    # 只在推送到 main（发布）时构建镜像，节省 Actions 用量（指导书 8.5 节）
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - name: 构建后端镜像
