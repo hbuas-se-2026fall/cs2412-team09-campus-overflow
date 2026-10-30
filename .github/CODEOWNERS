@@ -1,0 +1,29 @@
+# CODEOWNERS —— 按限界上下文自动指派第一评审人
+# 规则：越靠后的匹配优先；每行的第一人是该上下文的主责人
+# 依据 V3 第 7.5.1 节：评审人 = 所改上下文的主责人 + 任意一名其他成员
+
+# 默认：仓库治理与文档由 SM 兜底
+*                       @H-Canopy
+
+# 后端限界上下文
+/backend/co-qa/         @huangjiasheng567 @H-Canopy
+/backend/co-reputation/ @xing-ding @huangjiasheng567
+/backend/co-discovery/  @Twh743 @1311948
+/backend/co-identity/   @H-Canopy @xing-ding
+
+# 共享内核：变更影响全组，需两人评审
+/backend/co-shared-kernel/ @xing-ding @H-Canopy
+/backend/co-bootstrap/     @H-Canopy @1311948
+
+# 前端
+/frontend/              @Twh743
+
+# 基础设施与流水线
+/deploy/                @1311948 @H-Canopy
+/.github/               @H-Canopy @xing-ding
+
+# 文档
+/docs/adr/              @H-Canopy
+/docs/ddd/              @H-Canopy @huangjiasheng567
+/docs/scrum/            @H-Canopy
+/docs/ops/              @1311948
