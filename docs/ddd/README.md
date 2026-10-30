@@ -4,7 +4,7 @@
 
 | 交付物 | 文件 | 内容 |
 |---|---|---|
-| 上下文映射 | [context-map.md](context-map.md) | 六个限界上下文、事件与查询关系、三条跨上下文硬规矩 |
+| 上下文映射 | [context-map.md](context-map.md) | 四个限界上下文、事件与查询关系、三条跨上下文硬规矩 |
 | 统一语言 | [glossary.md](glossary.md) | 40 条中英对照术语，按上下文分组 |
 | 事件目录 | [event-catalog.md](event-catalog.md) | 14 个集成事件的生产者、消费者、触发时机与幂等策略 |
 | 领域模型 | [aggregates.md](aggregates.md) | 10 个聚合的根实体、内部对象与关键不变式 |
