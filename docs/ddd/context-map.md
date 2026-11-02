@@ -1,6 +1,7 @@
 # 上下文映射图（Context Map）
 
-> CampusOverflow 是模块化单体：六个限界上下文在一个进程里，但**物理分包、禁止跨上下文直接依赖实现**，只允许通过对方的 api 模块通信（ArchUnit 强制）。
+> CampusOverflow 是模块化单体：四个限界上下文（Identity、Q&A、Reputation、Discovery）在一个进程里，
+> 另有共享内核与装配层两个非上下文模块；**物理分包、禁止跨上下文直接依赖实现**，只允许通过对方的 api 模块通信（ArchUnit 强制）。
 
 ## 上下文划分
 

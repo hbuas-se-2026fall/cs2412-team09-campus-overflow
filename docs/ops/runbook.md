@@ -37,3 +37,4 @@ docker compose -f deploy/docker-compose.yml --profile observability down
 - **Grafana / Prometheus 无数据**：确认启动时带了 `--profile observability`（缺 profile 监控容器不会启动）；再确认 prometheus 能抓取 backend 的 `/actuator/prometheus` 指标。
 - **中文搜索无结果**：确认 mysql 以 `--ngram-token-size=2` 启动（compose 已配置），中文全文索引需要 ngram 解析，重建索引后重试。
 - **镜像拉取失败 / 容器起不来**：多为网络问题，配置镜像加速后重试 `up -d --build`；`docker compose ps` 结合 `logs -f` 看具体报错。
+- **backend 启动报 `Unsupported character encoding`**：`application.yml` 的 JDBC URL 里 `characterEncoding` 必须写 Java 字符集名 `UTF-8`；写成 MySQL 的 `utf8mb4` 会直接启动失败（Java 不识别该名字），报 `Unsupported character encoding 'utf8mb4'`。
