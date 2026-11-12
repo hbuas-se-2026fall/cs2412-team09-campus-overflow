@@ -37,7 +37,8 @@ public record SearchQuery(String keyword, Long courseId, String tag, SearchSort 
     }
 
     public List<String> terms() {
-        return keyword == null ? List.of() : terms(keyword);
+        // 词项先过一遍简称映射：学生习惯搜「软工」，而索引里只有「软件工程」
+        return keyword == null ? List.of() : terms(keyword).stream().map(AbbreviationDictionary::expand).toList();
     }
 
     private static List<String> terms(String keyword) {
