@@ -50,6 +50,22 @@ public class Course {
         this.id = id;
     }
 
+    /**
+     * 移除成员前的规则校验。
+     *
+     * <p>课程教师不可被移除（否则课程无人管理）；成员本人可以退课；
+     * 课程教师或管理员可以移除其他成员。
+     */
+    public void assertCanRemoveMember(Actor actor, CourseMember member) {
+        if (member.userId() == teacherId) {
+            throw new BusinessRuleException("ID-1014", "不能移除课程教师");
+        }
+        boolean self = actor.userId() == member.userId();
+        if (!self && !actor.isAdmin() && actor.userId() != teacherId) {
+            throw new ForbiddenException("ID-3004", "只有本人、课程教师或管理员可以移除成员");
+        }
+    }
+
     public Long id() { return id; }
     public String code() { return code; }
     public String name() { return name; }
