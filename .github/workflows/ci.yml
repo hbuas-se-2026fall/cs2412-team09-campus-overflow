@@ -45,8 +45,12 @@ jobs:
         run: mvn -B -f backend/pom.xml verify -DskipITs -Djacoco.skip=false
 
       # 阶段 5：集成测试（Testcontainers 拉起真实 MySQL + Redis）
+      # runner 上的 Docker 只接受 API >= 1.40，而 docker-java 默认按 1.32 协商会直接被拒
+      # （报 "client version 1.32 is too old"），这里显式指定，并同步给测试 JVM
       - name: 集成测试
-        run: mvn -B -f backend/pom.xml verify -Dsurefire.skip=true
+        env:
+          DOCKER_API_VERSION: "1.44"
+        run: mvn -B -f backend/pom.xml verify -Dsurefire.skip=true -Dapi.version=1.44
 
       - name: 归档测试报告
         if: always()
