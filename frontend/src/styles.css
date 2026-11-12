@@ -69,5 +69,6 @@ article h1 { font-size: 24px; margin-bottom: 4px; }
 .verified { color: var(--accent); margin-left: 4px; }
 .plain { list-style: none; padding: 0; }
 .plain li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); margin-right: 6px; vertical-align: middle; }
 .muted { color: var(--muted); }
 .error { color: var(--danger); }
