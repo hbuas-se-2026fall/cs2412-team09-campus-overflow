@@ -208,6 +208,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <!--
+                          Testcontainers 1.20.6 依赖的 docker-java 3.4.1 默认使用 Docker API 1.32，
+                          而 GitHub 托管 runner 的 Docker 引擎要求 >= 1.40，集成测试会报
+                          "client version 1.32 is too old"。docker-java 从系统属性 api.version
+                          读取该值，这里显式抬到 1.44。
+                        -->
+                        <api.version>1.44</api.version>
+                    </systemPropertyVariables>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
