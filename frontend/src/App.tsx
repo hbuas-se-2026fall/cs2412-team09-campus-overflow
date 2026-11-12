@@ -22,6 +22,7 @@ function Header() {
   const { me, logout } = useAuth()
   const navigate = useNavigate()
   const [unread, setUnread] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     if (!me) return
@@ -45,7 +46,19 @@ function Header() {
       <Link className="brand" to="/">
         CampusOverflow
       </Link>
-      <nav>
+      {/* 窄屏（<=768px）才显示，宽屏由 CSS 隐藏 */}
+      <button
+        className="nav-toggle"
+        aria-label="菜单"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        ☰
+      </button>
+      <nav
+        className={menuOpen ? 'open' : ''}
+        onClick={() => setMenuOpen(false)}
+      >
         <Link to="/">问题</Link>
         <Link to="/leaderboard">排行榜</Link>
         {me && (
