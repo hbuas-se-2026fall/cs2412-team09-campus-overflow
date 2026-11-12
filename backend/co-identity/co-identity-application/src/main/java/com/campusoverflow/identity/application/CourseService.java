@@ -65,6 +65,16 @@ public class CourseService {
         courses.saveMember(member);
     }
 
+    /** 移除课程成员：本人退课，或课程教师/管理员移除他人。课程教师本人不可被移除。 */
+    @Transactional
+    public void removeMember(Actor actor, long courseId, long userId) {
+        Course course = loadCourse(courseId);
+        CourseMember member = courses.findMember(courseId, userId)
+                .orElseThrow(() -> new NotFoundException("ID-4003", "该用户不是课程成员"));
+        course.assertCanRemoveMember(actor, member);
+        courses.removeMember(courseId, userId);
+    }
+
     @Transactional(readOnly = true)
     public List<CourseView> listAll(Actor actorOrNull) {
         List<Course> all = courses.findAll();

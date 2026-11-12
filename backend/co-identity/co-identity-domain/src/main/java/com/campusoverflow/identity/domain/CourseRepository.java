@@ -16,6 +16,8 @@ public interface CourseRepository {
 
     CourseMember saveMember(CourseMember member);
 
+    void removeMember(long courseId, long userId);
+
     List<CourseMember> findMembers(long courseId);
 
     List<CourseMember> findMembershipsOfUser(long userId);
