@@ -10,6 +10,7 @@ import {
 import { AuthProvider } from './auth'
 import { useAuth } from './auth-context'
 import { api } from './api'
+import { NOTIFICATIONS_READ_EVENT } from './notification-events'
 import { QuestionListPage } from './pages/QuestionListPage'
 import { QuestionDetailPage } from './pages/QuestionDetailPage'
 import { AskPage } from './pages/AskPage'
@@ -30,8 +31,13 @@ function Header() {
         .then((r) => setUnread(r.count))
         .catch(() => undefined)
     load()
+    // 通知页标已读后立即刷新角标；同时保留 30s 轮询兜底
+    window.addEventListener(NOTIFICATIONS_READ_EVENT, load)
     const timer = setInterval(load, 30_000)
-    return () => clearInterval(timer)
+    return () => {
+      window.removeEventListener(NOTIFICATIONS_READ_EVENT, load)
+      clearInterval(timer)
+    }
   }, [me])
 
   return (
