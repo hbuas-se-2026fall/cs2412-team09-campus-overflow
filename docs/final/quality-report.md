@@ -1,7 +1,8 @@
-# 质量报告 · CampusOverflow v1.0.0
+# 质量报告 · CampusOverflow v1.1.0
 
 **生成日期**：2026-11-05
-**对应 Release**：v1.0.0
+**修订日期**：2026-11-12（测试数与 ArchUnit 规则口径对齐 `docs/reports/` 的 CI 采集数据）
+**对应 Release**：v1.1.0
 **CI 流水线**：GitHub Actions（backend / frontend / images 三 job）
 
 ---
@@ -23,14 +24,15 @@
 
 ## 二、领域层覆盖率明细（JaCoCo）
 
-| 限界上下文 | 覆盖率 | 门禁要求 | 状态 |
-|-----------|--------|---------|------|
-| Q&A 问答核心 | 80.5% | ≥ 70% | ✅ 通过 |
-| Discovery 发现 | 79.5% | ≥ 70% | ✅ 通过 |
-| Identity 身份 | 75.7% | ≥ 70% | ✅ 通过 |
-| Reputation 声誉 | 72.5% | ≥ 70% | ✅ 通过 |
-| **综合（领域层加权）** | **77.2%** | ≥ 70% | ✅ 通过 |
+| 限界上下文 | 覆盖率 | 覆盖行 / 总行 | 门禁要求 | 状态 |
+|-----------|--------|--------------|---------|------|
+| Q&A 问答核心 | 80.7% | 180 / 223 | ≥ 70% | ✅ 通过 |
+| Discovery 发现 | 79.5% | 66 / 83 | ≥ 70% | ✅ 通过 |
+| Identity 身份 | 75.7% | 103 / 136 | ≥ 70% | ✅ 通过 |
+| Reputation 声誉 | 72.5% | 116 / 160 | ≥ 70% | ✅ 通过 |
+| **综合（领域层加权）** | **77.2%** | **465 / 602** | ≥ 70% | ✅ 通过 |
 
+> 数据来源：`docs/reports/coverage.md`，JaCoCo 0.8.12，采集于 2026-10-29（main @ `3592134`）。
 > 覆盖率口径：仅统计各上下文的 `-domain` 模块（纯 Java，无 Spring 依赖）。
 > application / infrastructure / interfaces 层为薄封装，不纳入门禁计算。
 
@@ -40,21 +42,33 @@
 
 | 指标 | 数值 |
 |------|------|
-| 自动化测试用例总数 | 112 个 |
-| 失败 | 0 |
-| 错误 | 0 |
+| 自动化测试用例总数 | **117 个** |
+| 测试类 | 23 个 |
+| 失败 / 错误 | 0 / 0 |
 | 跳过 | 0 |
+| 总耗时 | 9.96 秒 |
 | 测试通过率 | **100%** |
-| 单元测试（domain） | 86 个 |
-| 架构测试（ArchUnit） | 6 条规则 |
-| 集成测试（Testcontainers） | 20 个 |
+| 领域层（纯 Java 单元测试） | 58 个 |
+| 应用层（伪仓储编排测试） | 56 个 |
+| 共享内核 | 2 个 |
+| 架构约束（ArchUnit） | 1 个测试类，含 8 条规则 |
+| 集成测试（Testcontainers，Failsafe 单独执行） | 3 个 |
+
+> 数据来源：`docs/reports/test-summary.md`，`mvn -B verify -DskipITs` 的 Surefire `TEST-*.xml` 汇总，
+> 采集于 2026-10-29（main @ `3592134`），构建结果 `BUILD SUCCESS`。
+> 117 个为 Surefire 口径（不含 IT）；`CampusOverflowFlowIT` 另有 3 个集成用例，
+> 由 Failsafe 单独拉起 MySQL + Redis 容器执行，不计入上表总数。
 
 ### 测试分布
 
-- **domain 层**：每个聚合根都有等价类测试 + 边界测试 + 异常路径测试
-- **application 层**：用例服务的 Happy Path + 权限校验 + 依赖失败场景
-- **架构层**：ArchUnit 六条规则强制 DDD 分层边界
-- **集成层**：Testcontainers 拉起真实 MySQL + Redis，跑端到端流程
+- **domain 层（58 个）**：每个聚合根都有等价类测试 + 边界测试 + 异常路径测试，纯 Java 不启动容器，毫秒级执行
+- **application 层（56 个）**：用例服务的 Happy Path + 权限校验 + 依赖失败场景，用伪仓储替代真实持久化
+- **共享内核（2 个）**：脱敏工具等跨上下文通用能力
+- **架构层（8 条规则，1 个测试类）**：ArchUnit 强制 DDD 分层与上下文边界
+- **集成层（3 个）**：Testcontainers 拉起真实 MySQL + Redis，跑端到端流程
+
+领域层与应用层合计 114 个，占 97.4%——业务规则下沉到领域、用例编排留在应用层，
+两层都能脱离 Spring 容器跑，这是模块化单体保持可测性的关键。
 
 ---
 
@@ -69,23 +83,28 @@
 ### CI 质量门禁
 
 - **覆盖率门禁**：领域层 JaCoCo ≥ 70%，低于则 CI 失败
-- **架构门禁**：ArchUnit 六条规则，违反则 CI 失败
+- **架构门禁**：ArchUnit 8 条规则，违反则 CI 失败
 - **并发控制**：同一 PR 新提交自动取消旧 run，节省 Actions 分钟
 
 ---
 
 ## 五、架构质量（ArchUnit）
 
-六条架构适应度函数全部通过：
+8 条架构适应度函数全部通过（源码：`backend/co-bootstrap/.../architecture/ArchitectureTest.java`）：
 
-| 规则 | 说明 |
-|------|------|
-| FF-1 | domain 层不依赖 Spring、不依赖其他上下文 |
-| FF-2 | application 层只依赖本上下文 domain + 其他上下文 api |
-| FF-3 | infrastructure 层实现 domain 定义的接口，不反向暴露 |
-| FF-4 | interfaces 层（controller / scheduler）不被其他层直接调用 |
-| FF-5 | 跨上下文只允许依赖 `*-api` 包，禁止直接引用 domain |
-| FF-6 | 不允许从 interfaces 直接访问 infrastructure |
+| 规则 | 方法名 | 约束内容 |
+|------|--------|---------|
+| FF-1 | `domain_layer_is_framework_free` | domain 包不得依赖 Spring / JPA / Hibernate / Jackson / Swagger，必须能脱离框架独立编译测试 |
+| FF-2 | `contexts_communicate_only_through_published_language` | 四个上下文（identity / qa / reputation / discovery）互不依赖对方的 domain / application / infrastructure / interfaces，只能经由 `api` 包交互 |
+| FF-3 | `no_cycles_between_contexts` | 用 ArchUnit `slices` 检测，上下文之间不允许出现循环依赖 |
+| FF-4 | `hexagonal_layers` | 六边形分层方向：Interfaces / Application / Domain / Infrastructure / Bootstrap，依赖只能由外向内 |
+| FF-5 | `api_packages_are_dependency_free` | `*.api..` 只能依赖 JDK、共享内核、其他上下文的 api，保持发布语言稳定轻量 |
+| FF-6 | `tables_use_context_prefix` | 表名前缀按上下文隔离数据所有权：`id_` / `qa_` / `rep_` / `dis_` |
+| 分层约束 | `controllers_live_in_interfaces_layer` | `@RestController` 必须位于 `..interfaces..` |
+| 分层约束 | `entities_live_in_infrastructure_layer` | `@Entity` 必须位于 `..infrastructure..`（对应 ADR-008 领域与持久化分离） |
+
+> FF 编号沿用 arc42 第 10 章的适应度函数编号；两条分层约束为独立补充规则，不占 FF 编号。
+> 8 条规则在 Surefire 中作为一个测试类（`ArchitectureTest`）统计，因此测试类数 23 中它只计 1 个。
 
 ---
 
@@ -93,10 +112,10 @@
 
 | 课程要求 | 实际交付 | 状态 |
 |---------|---------|------|
-| 单元测试覆盖率 ≥ 70% | 领域层 77.2% | ✅ 达标 |
+| 单元测试覆盖率 ≥ 70% | 领域层 77.2%（465/602 行） | ✅ 达标 |
 | CI 持续集成全绿 | 三个 Job 全绿 | ✅ 达标 |
 | 代码评审（环形） | 5 人环形评审，无自批 | ✅ 达标 |
-| 架构约束可验证 | ArchUnit 六条规则 CI 强制 | ✅ 达标 |
+| 架构约束可验证 | ArchUnit 8 条规则 CI 强制 | ✅ 达标 |
 | SonarQube 质量看板 | 全项目 32.8%，领域层 77.2% | ✅ 达标（口径已说明） |
 
 ---
@@ -104,5 +123,6 @@
 ## 七、已知限制
 
 1. **SonarQube 全项目覆盖率偏低（32.8%）**：因为 infrastructure / interfaces / config 层代码量大但测试少。这是模块化单体的常见现象——domain 层是业务核心，测试集中在那里。
-2. **前端无单元测试**：前端以类型检查（TypeScript）+ 构建验证为准，未引入前端测试框架（v1.1 计划补 Vitest）。
+2. **前端无单元测试**：前端以类型检查（TypeScript）+ 构建验证为准，未引入前端测试框架（v1.2 计划补 Vitest）。
 3. **E2E 测试未自动化**：端到端流程由 Postman Collection + 手工录屏验证，未接入 Cypress / Playwright。
+4. **集成测试仅 3 个用例**：Testcontainers 覆盖了主链路（提问→回答→采纳→声誉），异常分支仍依赖应用层伪仓储测试兜底。
