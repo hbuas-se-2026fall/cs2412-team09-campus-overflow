@@ -2,6 +2,7 @@
 
 **生成日期**：2026-11-05
 **修订日期**：2026-11-12（测试数与 ArchUnit 规则口径对齐 `docs/reports/` 的 CI 采集数据）
+**修订依据**：`docs/reports/test-summary.md`（117 用例）、`docs/reports/coverage.md`（465/602 行）、`backend/co-bootstrap/.../architecture/ArchitectureTest.java`（8 条 `@ArchTest`）
 **对应 Release**：v1.1.0
 **CI 流水线**：GitHub Actions（backend / frontend / images 三 job）
 
