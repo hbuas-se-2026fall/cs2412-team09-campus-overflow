@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,6 +75,14 @@ public class CourseController {
     public ResponseEntity<Void> assignRole(@Parameter(hidden = true) Actor actor, @PathVariable long courseId,
                                            @PathVariable long userId, @Valid @RequestBody AssignRoleRequest req) {
         courses.assignRole(actor, courseId, userId, req.role());
+        return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "移除课程成员（本人退课，或教师/管理员移除他人）")
+    @DeleteMapping("/{courseId}/members/{userId}")
+    public ResponseEntity<Void> removeMember(@Parameter(hidden = true) Actor actor, @PathVariable long courseId,
+                                             @PathVariable long userId) {
+        courses.removeMember(actor, courseId, userId);
         return ResponseEntity.noContent().build();
     }
 

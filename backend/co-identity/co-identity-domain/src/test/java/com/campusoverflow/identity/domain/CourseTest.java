@@ -35,4 +35,36 @@ class CourseTest {
         s.changeRole(CourseRole.TA);
         assertThat(s.role().canManage()).isTrue();
     }
+
+    @Test
+    void studentCanLeaveCourseByThemselves() {
+        Course c = Course.create(new Actor(5, "王老师", Role.TEACHER), "DS-101", "数据结构", "2026-秋", NOW);
+        CourseMember self = CourseMember.student(1, 6, NOW);
+        c.assertCanRemoveMember(new Actor(6, "alice", Role.STUDENT), self);
+    }
+
+    @Test
+    void courseTeacherCannotBeRemoved() {
+        Course c = Course.create(new Actor(5, "王老师", Role.TEACHER), "DS-101", "数据结构", "2026-秋", NOW);
+        CourseMember teacher = CourseMember.teacher(1, 5, NOW);
+        // 连管理员也不能移除课程教师，否则课程失去管理者
+        assertThatThrownBy(() -> c.assertCanRemoveMember(new Actor(1, "admin", Role.ADMIN), teacher))
+                .isInstanceOf(BusinessRuleException.class)
+                .hasMessageContaining("不能移除课程教师");
+    }
+
+    @Test
+    void otherStudentCannotRemoveMember() {
+        Course c = Course.create(new Actor(5, "王老师", Role.TEACHER), "DS-101", "数据结构", "2026-秋", NOW);
+        CourseMember other = CourseMember.student(1, 7, NOW);
+        assertThatThrownBy(() -> c.assertCanRemoveMember(new Actor(6, "alice", Role.STUDENT), other))
+                .isInstanceOf(ForbiddenException.class);
+    }
+
+    @Test
+    void courseTeacherCanRemoveOtherMembers() {
+        Course c = Course.create(new Actor(5, "王老师", Role.TEACHER), "DS-101", "数据结构", "2026-秋", NOW);
+        CourseMember other = CourseMember.student(1, 7, NOW);
+        c.assertCanRemoveMember(new Actor(5, "王老师", Role.TEACHER), other);
+    }
 }
