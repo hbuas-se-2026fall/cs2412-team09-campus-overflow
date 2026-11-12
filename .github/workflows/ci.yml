@@ -45,7 +45,13 @@ jobs:
         run: mvn -B -f backend/pom.xml verify -DskipITs -Djacoco.skip=false
 
       # 阶段 5：集成测试（Testcontainers 拉起真实 MySQL + Redis）
+      # 显式指定 DOCKER_HOST：ubuntu-latest 镜像更新后，Testcontainers 默认策略
+      # 探测不到 socket 时会退化成 DockerDesktopClientProviderStrategy，
+      # 抛出 "Could not find a valid Docker environment"。
       - name: 集成测试
+        env:
+          DOCKER_HOST: unix:///var/run/docker.sock
+          TESTCONTAINERS_RYUK_DISABLED: "true"
         run: mvn -B -f backend/pom.xml verify -Dsurefire.skip=true
 
       - name: 归档测试报告
