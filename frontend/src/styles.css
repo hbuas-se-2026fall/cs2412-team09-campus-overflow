@@ -70,5 +70,42 @@ article h1 { font-size: 24px; margin-bottom: 4px; }
 .plain { list-style: none; padding: 0; }
 .plain li { padding: 6px 0; border-bottom: 1px solid var(--line); }
 .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); margin-right: 6px; vertical-align: middle; }
+
+/* 汉堡按钮：宽屏隐藏，窄屏才出现（见文末 768px 断点） */
+.nav-toggle { display: none; border: 1px solid var(--line); background: #fff; border-radius: 6px; padding: 6px 12px; font-size: 18px; line-height: 1; cursor: pointer; min-height: 40px; }
+
+@media (max-width: 768px) {
+  .topbar { flex-wrap: wrap; padding: 10px 16px; gap: 10px; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .topbar nav { display: none; order: 3; width: 100%; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
+  .topbar nav.open { display: flex; }
+  .topbar nav a { padding: 12px 4px; border-bottom: 1px solid var(--line); }
+  main { padding: 16px 12px; }
+  .qlist li { flex-direction: column; gap: 8px; }
+  .qlist .stats { flex-direction: row; gap: 14px; }
+  .post { flex-direction: column; }
+  .post .votebox { flex-direction: row; align-items: center; }
+  .board { display: block; overflow-x: auto; }
+}
+
+/* 手机：<=480px，单列 + 表单全屏 + 触控目标放大 */
+@media (max-width: 480px) {
+  .layout { grid-template-columns: 1fr; gap: 16px; }
+  .form-page { max-width: none; margin: 0; padding: 16px; min-height: calc(100vh - 56px); }
+  .form-page input, .form-page textarea, .form-page select { font-size: 16px; }
+  .form-page textarea { min-height: 40vh; }
+  .form-page button.primary { position: sticky; bottom: 0; width: 100%; min-height: 48px; margin-top: 8px; }
+  button, .tag, .qtitle { min-height: 44px; }
+  .tagrow { gap: 8px; }
+  h1 { font-size: 22px; }
+  /* 搜索栏在 375px 下会顶出屏幕：输入框原本 min-width 220px，和排序下拉加起来超宽。
+     选择器要和上面 .toolbar input[type=text] 同级，否则被它的 min-width 压住 */
+  .toolbar input[type=text], .toolbar input:not([type]), .toolbar select, .toolbar button {
+    flex: 1 1 100%; width: 100%; min-width: 0;
+  }
+  .qlist li { padding: 12px; }
+  .stats { flex-wrap: wrap; gap: 10px; }
+}
+
 .muted { color: var(--muted); }
 .error { color: var(--danger); }
