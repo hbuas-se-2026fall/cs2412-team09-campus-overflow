@@ -111,7 +111,7 @@ DDD 五层的价值不在分层本身，在于"改一个上下文不用动别人
 | 代码提交数 | 26 次 | `git shortlog -sn --all` |
 | 负责用户故事 | 3 个（US-01 / 02 / 03） | 环形评审分工表 |
 | PO 负责的故事总数 | 14 个 | Backlog / Milestone |
-| `Question` 聚合根 | 137 行，7 个业务方法 | 文件实测 |
+| `Question` 聚合根 | 137 行，9 个公开方法 | 文件实测 |
 | `MarkdownBody` 值对象 | 13 行 | 文件实测 |
 | Command + Query Service | 99 + 145 行 | 文件实测 |
 | 领域层测试 | 155 行（QuestionTest 123 + MarkdownBodyTest 32） | 文件实测 |
