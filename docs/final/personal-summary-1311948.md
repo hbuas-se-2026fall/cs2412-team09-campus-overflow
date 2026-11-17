@@ -41,7 +41,7 @@
 
 ### 用户故事（US-09 悬赏 / US-10 徽章排行榜）
 
-`reputation` 域的核心实现由②完成（`BountyService`、`LeaderboardService`、`BadgePolicy`）。我负责验收：核对实际代码后，在 issue #21 / #22 补完成说明留痕。这部分我是验收方，不是实现方。
+这段代码不在我名下，按提交记录归属：悬赏与排行榜的应用层编排由③ 完成（`BountyService`、`LeaderboardService`，commit `00b755e`），徽章策略由④ 完成（`BadgePolicy`，commit `9fe58b3`）。我作为 US-09 / US-10 的验收方，核对接口路径与领域规则，把验收结论留痕在 issue #21 / #22，未提交该域代码。这部分我是验收方，不是实现方。
 
 ### 评审
 
