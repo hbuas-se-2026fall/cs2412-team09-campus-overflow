@@ -98,6 +98,13 @@ article h1 { font-size: 24px; margin-bottom: 4px; }
   button, .tag, .qtitle { min-height: 44px; }
   .tagrow { gap: 8px; }
   h1 { font-size: 22px; }
+  /* 搜索栏在 375px 下会顶出屏幕：输入框原本 min-width 220px，和排序下拉加起来超宽。
+     选择器要和上面 .toolbar input[type=text] 同级，否则被它的 min-width 压住 */
+  .toolbar input[type=text], .toolbar input:not([type]), .toolbar select, .toolbar button {
+    flex: 1 1 100%; width: 100%; min-width: 0;
+  }
+  .qlist li { padding: 12px; }
+  .stats { flex-wrap: wrap; gap: 10px; }
 }
 
 .muted { color: var(--muted); }
