@@ -37,6 +37,21 @@ class DiscoveryDomainTest {
     }
 
     @Test
+    void abbreviationIsExpandedBeforeSearching() {
+        // 索引里只有「软件工程」，用户会搜「软工」
+        SearchQuery q = new SearchQuery("软工", null, null, null, false, false, null);
+        assertThat(q.terms()).containsExactly("软件工程");
+
+        // 多个词项时逐个替换，非简称原样保留
+        SearchQuery mixed = new SearchQuery("软工 索引", null, null, null, false, false, null);
+        assertThat(mixed.terms()).containsExactly("软件工程", "索引");
+
+        // 不是简称的不能被改
+        SearchQuery plain = new SearchQuery("红黑树", null, null, null, false, false, null);
+        assertThat(plain.terms()).containsExactly("红黑树");
+    }
+
+    @Test
     void jaccardRanking() {
         assertThat(RelatedQuestionPolicy.jaccard(2, 3, 3)).isEqualTo(0.5);
         List<RelatedCandidate> ranked = RelatedQuestionPolicy.rank(List.of(
