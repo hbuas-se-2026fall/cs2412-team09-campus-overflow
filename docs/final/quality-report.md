@@ -1,10 +1,24 @@
-# 质量报告 · CampusOverflow v1.1.0
+# 质量报告 · CampusOverflow（v1.1.0 → v1.2.0）
 
 **生成日期**：2026-11-05
 **修订日期**：2026-11-12（测试数与 ArchUnit 规则口径对齐 `docs/reports/` 的 CI 采集数据）
-**修订依据**：`docs/reports/test-summary.md`（117 用例）、`docs/reports/coverage.md`（465/602 行）、`backend/co-bootstrap/.../architecture/ArchitectureTest.java`（8 条 `@ArchTest`）
-**对应 Release**：v1.1.0
+**再次修订**：2026-11-19（新增 v1.2.0 发布版的测试运行数据，v1.1.0 历史数据保留不动）
+**修订依据**：`docs/reports/test-summary.md`（117 用例）、`docs/reports/coverage.md`（465/602 行）、`backend/co-bootstrap/.../architecture/ArchitectureTest.java`（8 条 `@ArchTest`）、v1.2.0 main CI 日志（122 用例）
+**对应 Release**：v1.1.0（历史统计）、v1.2.0（当前发布版统计）
 **CI 流水线**：GitHub Actions（backend / frontend / images 三 job）
+
+## 版本数据对照
+
+两版数据分别采集自不同提交，**不互相覆盖**：
+
+| 版本 | 提交 | Surefire 用例 | Failsafe 集成用例 | 采集日期 |
+| --- | --- | --- | --- | --- |
+| v1.1.0 | `3592134`（main） | 117 | 3 | 2026-10-29 |
+| v1.2.0 | `211e99d`（main，发布合并） | 122 | 3 | 2026-11-19 |
+
+v1.2.0 的 122 个含 1 个 ArchUnit 测试入口；与 3 个独立集成用例合计 125 次测试执行，
+但**不应表述为“125 个单元测试”**——Surefire 与 Failsafe 是两套独立执行口径。
+下文第三章为 v1.1.0 历史统计，v1.2.0 的增量见第三章末的补记。
 
 ---
 
@@ -70,6 +84,18 @@
 
 领域层与应用层合计 114 个，占 97.4%——业务规则下沉到领域、用例编排留在应用层，
 两层都能脱离 Spring 容器跑，这是模块化单体保持可测性的关键。
+
+### v1.2.0 补记（2026-11-19）
+
+v1.2.0 发布合并到 main 后，后端 job 跑出 **122 个 Surefire 用例，0 失败 0 错误**，
+另有 **3 个 Failsafe 集成用例全部通过**。相比 v1.1.0 的 117 个新增 5 个，全部来自两个测试类：
+`DiscoveryDomainTest`（US-07 简称搜索）与 `CourseTest`（US-13 课程成员规则）。
+`git diff 3592134..211e99d -- "*Test.java"` 显示只有这两个文件有新增，共 +47 行。
+
+- 运行记录：main 分支 CI（commit `211e99d`，Merge pull request #48），后端、前端、镜像构建三个 job 全部成功
+- 覆盖率门禁：JaCoCo 领域层 ≥ 70% 继续通过；第七章列出的 77.2% 仍为 v1.1.0 的精确统计，
+  v1.2.0 只证明门禁通过，未重新逐行重算，**引用时请注明版本**
+
 
 ---
 
