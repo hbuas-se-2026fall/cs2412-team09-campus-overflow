@@ -45,6 +45,10 @@ public class Answer {
         if (question.id() == null) {
             throw new BusinessRuleException("QA-1012", "问题尚未保存，不能回答");
         }
+        // US-03：自己的问题不需要自己回答（前端也不显示输入框）
+        if (question.authorId() == authorId) {
+            throw new BusinessRuleException("QA-1017", "不能回答自己的问题");
+        }
         return new Answer(null, question.id(), authorId, body, 0, null, now, now, null, 0L);
     }
 

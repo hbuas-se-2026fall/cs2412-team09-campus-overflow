@@ -16,6 +16,21 @@ class AnswerTest {
     private final Actor teacher = new Actor(9, "王老师", Role.TEACHER);
 
     @Test
+    void authorCannotAnswerOwnQuestion() {
+        Question q = QuestionTest.persistedQuestion();
+        // US-03：自己的问题不需要自己回答
+        assertThatThrownBy(() -> Answer.submit(q, QuestionTest.ASKER.userId(),
+                MarkdownBody.ofAnswer("自己补充一下细节，避免被误解。"), QuestionTest.NOW))
+                .isInstanceOf(BusinessRuleException.class)
+                .hasMessageContaining("不能回答自己的问题");
+
+        // 换个用户就能答
+        Answer a = Answer.submit(q, QuestionTest.OTHER.userId(),
+                MarkdownBody.ofAnswer("看一下叔叔节点的颜色和插入位置。"), QuestionTest.NOW);
+        assertThat(a.authorId()).isEqualTo(QuestionTest.OTHER.userId());
+    }
+
+    @Test
     void onlyCourseManagerCanEndorseAndOnlyOnce() {
         Question q = QuestionTest.persistedQuestion();
         Answer a = QuestionTest.persistedAnswer(q, answerer.userId(), 50);
