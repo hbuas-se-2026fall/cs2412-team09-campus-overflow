@@ -74,7 +74,21 @@ V3 要求「可在校园网内通过域名访问的线上系统」。课程未�
 - 验证在本地容器环境完成，`http://localhost` 可访问
 - 换到有域名的机器上，只需改 `nginx.conf` 的 server_name，其余不动
 
-**结论**：不是「没做部署」，是**没有服务器**。这一点在 Release Notes 与运维手册里都写明了。
+**公网部署另有一份加固配置**：`deploy/docker-compose.public.yml`。
+
+本地演示版会把 MySQL(3306)、Redis(6379)、后端(8080) 直接发布到宿主机，口令带开发默认值，默认带 demo 数据，`COOKIE_SECURE=false`——这些在本地没问题，放公网就是事故。公网版做了对应处理：
+
+- 只有 `web` 对外发布 80/443，其余服务只在容器网络内
+- Redis 开 `--requirepass`，后端通过 `REDIS_PASSWORD` 认证（为此在 `application.yml` 里补了可选的 `spring.data.redis.password`）
+- 所有口令与密钥改成 `${VAR:?}`，缺一个就启动失败
+- 只启用 `prod` profile（不带 demo），显式 `COOKIE_SECURE=true`
+- Prometheus / Grafana 只绑 `127.0.0.1`
+
+配套：`deploy/.env.public.example`（变量样板）、`deploy/check-public-compose.py`（8 项静态自检）、运维手册第 5 节（启动步骤与 HTTPS 两种做法）。
+
+> 说明：本机没有 Docker，所以这份公网配置只做过静态校验，未在真实服务器上跑过；真正上线前需要在一台有 Docker 的机器上验证一次。
+
+**结论**：不是「没做部署」，是**没有服务器**。这一点在 Release Notes 与运维手册里都写明了；公网所需的加固配置已备好。
 
 ### 5–6. PPT、视频、个人总结 —— 待交，不是不做
 

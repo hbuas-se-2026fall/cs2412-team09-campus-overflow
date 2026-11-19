@@ -1,0 +1,126 @@
+# 公网部署用的 Compose（安全加固版），与本地演示用的 docker-compose.yml 是两份独立文件。
+#
+# 用法：
+#   cp deploy/.env.public.example deploy/.env.public
+#   # 填好里面的必填项（不填会直接启动失败，这是故意的）
+#   docker compose -f deploy/docker-compose.public.yml --env-file deploy/.env.public up -d --build
+#
+# 与开发版的差异（对应验收意见「问题 4」）：
+#   1. MySQL / Redis / 后端都不再发布宿主机端口，只留在容器网络内
+#   2. Redis 开启 --requirepass，后端通过 REDIS_PASSWORD 认证
+#   3. 所有口令与密钥都没有默认值，缺失即启动失败
+#   4. 只启用 prod profile（不带 demo 数据初始化）
+#   5. 显式 COOKIE_SECURE=true；prod profile 本身也强制 true 并关闭在线文档
+#   6. Prometheus / Grafana 只绑 127.0.0.1，且 Grafana 口令必填
+#   7. 对外只暴露 web 的 80（TLS 由前置反代或云负载均衡终止，见 runbook）
+name: campus-overflow-public
+
+services:
+  mysql:
+    image: mysql:8.0.39
+    container_name: co-mysql
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --ngram-token-size=2
+      - --innodb-ft-enable-stopword=0
+      - --default-time-zone=+00:00
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?公网部署必须设置 MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: campus_overflow
+      MYSQL_USER: campus
+      MYSQL_PASSWORD: ${DB_PASSWORD:?公网部署必须设置 DB_PASSWORD}
+    # 不发布宿主机端口：只有同一 Compose 网络内的 backend 能访问
+    volumes: ["mysql-data:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: co-redis
+    restart: unless-stopped
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+      - --maxmemory
+      - 256mb
+      - --maxmemory-policy
+      - allkeys-lru
+      - --requirepass
+      - ${REDIS_PASSWORD:?公网部署必须设置 REDIS_PASSWORD}
+    volumes: ["redis-data:/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+    container_name: co-backend
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: prod          # 不带 demo：不写演示数据
+      DB_HOST: mysql
+      DB_USER: campus
+      DB_PASSWORD: ${DB_PASSWORD:?}
+      REDIS_HOST: redis
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?}
+      CO_FIELD_KEY: ${CO_FIELD_KEY:?公网部署必须设置独立的 CO_FIELD_KEY}
+      COOKIE_SECURE: "true"                 # 必须经 HTTPS 访问
+      TZ: UTC
+    depends_on:
+      mysql: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    # 不发布宿主机端口：只允许 web 通过容器网络反代访问
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health/readiness"]
+      interval: 15s
+      timeout: 5s
+      retries: 30
+
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/frontend.Dockerfile
+    container_name: co-web
+    restart: unless-stopped
+    depends_on:
+      backend: { condition: service_healthy }
+    # 唯一对外端口。HTTPS 建议在前置反代（Caddy / 云 LB / Cloudflare）终止，
+    # 若要让 nginx 直接终止，需挂载证书并把 443 一起发布，见 runbook。
+    ports: ["80:80"]
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: co-prometheus
+    restart: unless-stopped
+    profiles: ["observability"]
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--web.enable-lifecycle"]
+    volumes: ["./prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    # 只允许本机（SSH 隧道）访问，不暴露到公网
+    ports: ["127.0.0.1:9090:9090"]
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: co-grafana
+    restart: unless-stopped
+    profiles: ["observability"]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?公网部署必须设置 GRAFANA_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    depends_on: [prometheus]
+    ports: ["127.0.0.1:3000:3000"]
+    volumes: ["grafana-data:/var/lib/grafana"]
+
+volumes:
+  mysql-data:
+  redis-data:
+  grafana-data:
