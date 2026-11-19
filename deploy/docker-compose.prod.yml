@@ -1,0 +1,34 @@
+# 公网 / 校园网部署覆盖文件。必须与主文件叠加使用：
+#
+#   cp deploy/.env.example deploy/.env        # 填写真实密钥，且不要提交
+#   docker compose -f deploy/docker-compose.yml -f deploy/docker-compose.prod.yml \
+#                  --env-file deploy/.env up -d --build
+#
+# 与主文件的差异只有三点：
+#   1. 强制注入密钥：MYSQL_ROOT_PASSWORD / DB_PASSWORD / CO_FIELD_KEY / GRAFANA_PASSWORD
+#      缺任何一个，compose 直接报错退出，不会带着默认口令启动
+#   2. 关闭 demo profile：不再写入演示数据
+#   3. 依赖服务端口沿用主文件的 127.0.0.1 绑定，对外只保留 web 的 80
+#
+# 仍需人工完成的事（compose 做不到）：HTTPS 证书、反向代理、备份策略，见 runbook 第 8 节。
+name: campus-overflow
+
+services:
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?未设置 MYSQL_ROOT_PASSWORD，请检查 deploy/.env}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?未设置 DB_PASSWORD，请检查 deploy/.env}
+    healthcheck:
+      # 用容器内环境变量，避免覆盖密码后 healthcheck 仍拿旧默认值
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+
+  backend:
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_PASSWORD: ${DB_PASSWORD:?未设置 DB_PASSWORD，请检查 deploy/.env}
+      CO_FIELD_KEY: ${CO_FIELD_KEY:?未设置 CO_FIELD_KEY，请检查 deploy/.env}
+      COOKIE_SECURE: "true"          # 与 prod profile 保持一致，避免环境变量与配置互相矛盾
+
+  grafana:
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?未设置 GRAFANA_PASSWORD，请检查 deploy/.env}
