@@ -1,4 +1,5 @@
 import type {
+  Course,
   LeaderboardEntry,
   Me,
   Notification,
@@ -121,6 +122,7 @@ export const api = {
       tag?: string
       sort?: string
       unanswered?: boolean
+      courseId?: number
       page?: number
     } = {},
   ) => {
@@ -128,8 +130,10 @@ export const api = {
     if (params.tag) search.set('tag', params.tag)
     if (params.sort) search.set('sort', params.sort)
     if (params.unanswered) search.set('unanswered', 'true')
+    if (params.courseId) search.set('courseId', String(params.courseId))
     return get<Page<SearchResult>>(`/v1/search/questions?${search}`)
   },
+  courses: () => get<Course[]>('/v1/courses'),
   related: (questionId: number) =>
     get<
       { id: number; title: string; answerCount: number; accepted: boolean }[]

@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { api } from '../api'
 import { useAuth } from '../auth-context'
-import type { Page, QuestionSummary, SearchResult } from '../types'
+import type { Course, Page, QuestionSummary, SearchResult } from '../types'
 
 export function QuestionListPage() {
   const { me } = useAuth()
+  const [params, setParams] = useSearchParams()
+  const courseId = params.get('courseId')
+    ? Number(params.get('courseId'))
+    : undefined
   const [data, setData] = useState<Page<QuestionSummary | SearchResult> | null>(
     null,
   )
   const [tags, setTags] = useState<{ name: string; questionCount: number }[]>(
     [],
   )
+  const [courses, setCourses] = useState<Course[]>([])
   const [keyword, setKeyword] = useState('')
   const [activeTag, setActiveTag] = useState<string | undefined>()
   const [sort, setSort] = useState('newest')
@@ -22,6 +27,10 @@ export function QuestionListPage() {
     api
       .popularTags()
       .then(setTags)
+      .catch(() => undefined)
+    api
+      .courses()
+      .then(setCourses)
       .catch(() => undefined)
   }, [])
 
@@ -37,9 +46,18 @@ export function QuestionListPage() {
     // cancelled 用来丢弃过期响应：旧请求晚回来时不再覆盖新结果
     let cancelled = false
     const searching =
-      debouncedKeyword !== '' || activeTag || unanswered || sort !== 'newest'
+      debouncedKeyword !== '' ||
+      activeTag ||
+      unanswered ||
+      sort !== 'newest' ||
+      courseId !== undefined
     const promise = searching
-      ? api.search(debouncedKeyword, { tag: activeTag, sort, unanswered })
+      ? api.search(debouncedKeyword, {
+          tag: activeTag,
+          sort,
+          unanswered,
+          courseId,
+        })
       : api.questions(1)
     promise
       .then((r) => {
@@ -53,7 +71,7 @@ export function QuestionListPage() {
     return () => {
       cancelled = true
     }
-  }, [debouncedKeyword, activeTag, sort, unanswered])
+  }, [debouncedKeyword, activeTag, sort, unanswered, courseId])
 
   return (
     <div className="layout">
@@ -85,6 +103,25 @@ export function QuestionListPage() {
           )}
         </div>
 
+        {courseId !== undefined && (
+          <p className="muted">
+            课程筛选：
+            <b>
+              {(() => {
+                const c = courses.find((x) => x.id === courseId)
+                return c ? `${c.code} · ${c.name}` : `#${courseId}`
+              })()}
+            </b>{' '}
+            <button
+              onClick={() => {
+                params.delete('courseId')
+                setParams(params)
+              }}
+            >
+              清除
+            </button>
+          </p>
+        )}
         {activeTag && (
           <p className="muted">
             标签筛选：<b>{activeTag}</b>{' '}

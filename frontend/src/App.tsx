@@ -17,6 +17,7 @@ import { AskPage } from './pages/AskPage'
 import { LoginPage } from './pages/LoginPage'
 import { LeaderboardPage } from './pages/LeaderboardPage'
 import { NotificationsPage } from './pages/NotificationsPage'
+import { CoursesPage } from './pages/CoursesPage'
 
 function Header() {
   const { me, logout } = useAuth()
@@ -60,6 +61,7 @@ function Header() {
         onClick={() => setMenuOpen(false)}
       >
         <Link to="/">问题</Link>
+        <Link to="/courses">课程</Link>
         <Link to="/leaderboard">排行榜</Link>
         {me && (
           <Link to="/notifications">
@@ -99,6 +101,7 @@ export function App() {
         <main>
           <Routes>
             <Route path="/" element={<QuestionListPage />} />
+            <Route path="/courses" element={<CoursesPage />} />
             <Route path="/questions/:id" element={<QuestionDetailPage />} />
             <Route
               path="/ask"
