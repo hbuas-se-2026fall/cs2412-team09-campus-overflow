@@ -195,7 +195,9 @@ export function QuestionDetailPage() {
           </div>
         ))}
 
-        {me ? (
+        {me && me.id === q.author.id ? (
+          <p className="muted">这是你自己的问题，等同学来回答吧。</p>
+        ) : me ? (
           <section className="answer-form">
             <h3>写回答</h3>
             <textarea
