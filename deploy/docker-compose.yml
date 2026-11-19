@@ -1,5 +1,7 @@
-# 一键启动完整环境：docker compose -f deploy/docker-compose.yml --profile observability up -d --build
-# 仅启动应用（不含监控）：docker compose -f deploy/docker-compose.yml up -d --build
+# 本地开发与演示用。所有依赖服务端口只绑定 127.0.0.1，不对局域网/公网暴露。
+# 一键启动完整环境（含监控）：docker compose -f deploy/docker-compose.yml --profile observability up -d --build
+# 仅启动应用：docker compose -f deploy/docker-compose.yml up -d --build
+# 公网或校园网部署：叠加 deploy/docker-compose.prod.yml，见 deploy/runbook.md 第 8 节
 name: campus-overflow
 
 services:
@@ -17,7 +19,7 @@ services:
       MYSQL_DATABASE: campus_overflow
       MYSQL_USER: campus
       MYSQL_PASSWORD: ${DB_PASSWORD:-campus_dev_pwd}
-    ports: ["3306:3306"]
+    ports: ["127.0.0.1:3306:3306"]          # 仅本机可连，避免数据库暴露
     volumes: ["mysql-data:/var/lib/mysql"]
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD:-root_dev_pwd}"]
@@ -29,7 +31,7 @@ services:
     image: redis:7-alpine
     container_name: co-redis
     command: ["redis-server", "--appendonly", "yes", "--maxmemory", "256mb", "--maxmemory-policy", "allkeys-lru"]
-    ports: ["6379:6379"]
+    ports: ["127.0.0.1:6379:6379"]          # 仅本机可连；Redis 未启用密码认证，禁止跨机访问
     volumes: ["redis-data:/data"]
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
@@ -54,7 +56,7 @@ services:
     depends_on:
       mysql: { condition: service_healthy }
       redis: { condition: service_healthy }
-    ports: ["8080:8080"]
+    ports: ["127.0.0.1:8080:8080"]          # 由 web 容器反向代理对外
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health/readiness"]
       interval: 10s
@@ -75,7 +77,7 @@ services:
     container_name: co-prometheus
     profiles: ["observability"]
     volumes: ["./prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
-    ports: ["9090:9090"]
+    ports: ["127.0.0.1:9090:9090"]
 
   grafana:
     image: grafana/grafana:11.2.0
@@ -84,7 +86,7 @@ services:
     environment:
       GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
     depends_on: [prometheus]
-    ports: ["3000:3000"]
+    ports: ["127.0.0.1:3000:3000"]
     volumes: ["grafana-data:/var/lib/grafana"]
 
 volumes:
