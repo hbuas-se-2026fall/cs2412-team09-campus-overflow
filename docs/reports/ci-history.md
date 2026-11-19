@@ -10,8 +10,8 @@
 
 | Job | 触发条件 | 内容 |
 |---|---|---|
-| **后端构建与验证** | push / PR | JDK 21，`mvn -B verify`：编译 → 全部 117 个测试 → JaCoCo 覆盖率门禁（四模块 ≥70%）→ ArchUnit 8 条规则 |
-| **前端构建** | push / PR | Node 20，`npm ci` → `npm run lint` → `npm run typecheck` → `npm run build` |
+| **后端构建与验证** | push / PR | JDK 21，`mvn -B verify`：编译 → 全部单元测试 → JaCoCo 覆盖率门禁（四模块 ≥70%）→ ArchUnit 8 条规则 → 集成测试（Failsafe） |
+| **前端构建** | push / PR | Node 20，`npm install` → `npm run typecheck` → `npm run build`（**lint 目前只在本地 pre-commit 钩子里跑，未进 CI**） |
 | **容器镜像构建** | **仅 main** | `docker build` 后端与前端镜像，验证 Dockerfile 可用 |
 
 第三个 job 只在 main 上跑，所以 PR 的检查列表里通常只看到前两个——
@@ -31,6 +31,9 @@
 | 1 | `main` | `55d93c1` | ✅ success | 2026-10-27 11:22 | 仓库迁移后首次运行 |
 
 **8 次运行 0 失败**，平均耗时约 3 分钟（后端 2 分钟 + 前端 40 秒）。
+
+> 单元测试数量的版本口径：v1.1.0（`3592134`）117 个 → v1.2.0（`211e99d`）122 个 → develop（`ab6374c`）123 个，
+> 明细见 [test-summary.md](test-summary.md)。
 
 ## 三、v1.2.0 发布期运行记录（2026-11-17 ~ 11-19）
 
