@@ -63,6 +63,11 @@ public class CourseRepositoryAdapter implements CourseRepository {
     }
 
     @Override
+    public void removeMember(long courseId, long userId) {
+        members.deleteByCourseIdAndUserId(courseId, userId);
+    }
+
+    @Override
     public List<CourseMember> findMembers(long courseId) {
         return members.findByCourseId(courseId).stream().map(CourseRepositoryAdapter::toDomain).toList();
     }
