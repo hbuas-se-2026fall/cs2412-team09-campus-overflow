@@ -3,7 +3,7 @@
 **生成日期**：2026-11-05
 **修订日期**：2026-11-12（测试数与 ArchUnit 规则口径对齐 `docs/reports/` 的 CI 采集数据）
 **再次修订**：2026-11-19（新增 v1.2.0 发布版的测试运行数据，v1.1.0 历史数据保留不动）
-**修订依据**：`docs/reports/test-summary.md`（117 用例）、`docs/reports/coverage.md`（465/602 行）、`backend/co-bootstrap/.../architecture/ArchitectureTest.java`（8 条 `@ArchTest`）、v1.2.0 main CI 日志（122 用例）
+**修订依据**：`docs/reports/test-summary.md`（117 用例）、`docs/reports/coverage.md`（465/602 行）、`backend/co-bootstrap/.../architecture/ArchitectureTest.java`（8 条 `@ArchTest`）、v1.2.0 main CI 日志（122 用例）、develop CI 工件（123 用例）
 **对应 Release**：v1.1.0（历史统计）、v1.2.0（当前发布版统计）
 **CI 流水线**：GitHub Actions（backend / frontend / images 三 job）
 
@@ -15,10 +15,17 @@
 | --- | --- | --- | --- | --- |
 | v1.1.0 | `3592134`（main） | 117 | 3 | 2026-10-29 |
 | v1.2.0 | `211e99d`（main，发布合并） | 122 | 3 | 2026-11-19 |
+| develop（待发布） | `ab6374c`（含 #49 自答规则、#50 课程浏览） | 123 | 3 | 2026-11-19 |
+
+采集来源：
+- v1.1.0 / v1.2.0：`docs/reports/test-summary.md` 与 main 的 `backend-test-reports` 工件
+- develop：[run 44435279911](https://github.com/hbuas-se-2026fall/cs2412-team09-campus-overflow/actions/runs/44435279911) 的 `backend-test-reports` 工件（Surefire 123 + Failsafe 3）
+
 
 v1.2.0 的 122 个含 1 个 ArchUnit 测试入口；与 3 个独立集成用例合计 125 次测试执行，
 但**不应表述为“125 个单元测试”**——Surefire 与 Failsafe 是两套独立执行口径。
-下文第三章为 v1.1.0 历史统计，v1.2.0 的增量见第三章末的补记。
+develop 上再合并 #49、#50 之后是 123 + 3 = 126。
+下文第三章为 v1.1.0 历史统计，v1.2.0 与 develop 的增量见第三章末的两段补记。
 
 ---
 
@@ -92,9 +99,31 @@ v1.2.0 发布合并到 main 后，后端 job 跑出 **122 个 Surefire 用例，
 `DiscoveryDomainTest`（US-07 简称搜索）与 `CourseTest`（US-13 课程成员规则）。
 `git diff 3592134..211e99d -- "*Test.java"` 显示只有这两个文件有新增，共 +47 行。
 
-- 运行记录：main 分支 CI（commit `211e99d`，Merge pull request #48），后端、前端、镜像构建三个 job 全部成功
+- 运行记录：[main run 44429548250](https://github.com/hbuas-se-2026fall/cs2412-team09-campus-overflow/actions/runs/44429548250)（commit `211e99d`，Merge pull request #48），后端、前端、镜像构建三个 job 全部成功
 - 覆盖率门禁：JaCoCo 领域层 ≥ 70% 继续通过；第七章列出的 77.2% 仍为 v1.1.0 的精确统计，
   v1.2.0 只证明门禁通过，未重新逐行重算，**引用时请注明版本**
+
+### develop 增量（2026-11-19，尚未发版）
+
+合并 #49（禁止回答自己的问题）与 #50（课程列表页）之后，develop 的 `backend-test-reports` 工件显示：
+
+- Surefire **123 个**（v1.2.0 的 122 + `AnswerTest` 新增的自答拦截用例 1 个）
+- Failsafe **3 个**，全部通过
+- 合计 126 次测试执行，0 失败 0 错误
+
+按层的分布（采集自同一工件）：
+
+| 层 | 用例数 | 说明 |
+|---|---:|---|
+| 领域层 | 64 | qa 28 + reputation 15 + identity 13 + discovery 8 |
+| 应用层 | 56 | qa 18 + discovery 20 + reputation 18 |
+| 共享内核 | 2 | `MaskingTest` |
+| 架构约束 | 1 | `ArchitectureTest`（8 条规则） |
+| **Surefire 小计** | **123** | |
+| 集成测试 | 3 | `CampusOverflowFlowIT` |
+
+运行记录：[develop run 44435279911](https://github.com/hbuas-se-2026fall/cs2412-team09-campus-overflow/actions/runs/44435279911)，后端与前端 job 均 success。
+这部分并入 v1.2.1（或下一次发布）后，发布版本的统计才会变成 123。
 
 
 ---
