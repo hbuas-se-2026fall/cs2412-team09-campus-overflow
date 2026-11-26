@@ -1,0 +1,147 @@
+<slide>
+  <data>
+    <shape type="text" topLeftX="60" topLeftY="40" width="840" height="50">
+      <content textType="title" fontSize="28" fontFamily="微软雅黑" color="rgba(0,28,84,1)" bold="true">
+        <p>质量数据 · 117 测试全绿，领域层覆盖率 77.2%</p>
+      </content>
+    </shape>
+    <line startX="60" startY="100" endX="180" endY="100">
+      <border color="rgba(0,48,135,1)" width="3"/>
+    </line>
+    <shape type="text" topLeftX="60" topLeftY="115" width="840" height="30">
+      <content textType="body" fontSize="14" fontFamily="微软雅黑" color="rgba(71,85,105,1)">
+        <p>CI 三道门禁：单元测试 → ArchUnit 架构约束 → 覆盖率门禁（≥70%）</p>
+      </content>
+    </shape>
+
+    <!-- 四个大数字 KPI -->
+    <shape type="rect" topLeftX="60" topLeftY="170" width="190" height="130" presetHandlers="8">
+      <fill><fillColor color="rgba(248,250,252,1)"/></fill>
+      <border color="rgba(226,232,240,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="185" width="190" height="50">
+      <content textType="title" fontSize="36" fontFamily="微软雅黑" color="rgba(0,48,135,1)" bold="true" textAlign="center">
+        <p>117</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="245" width="190" height="40">
+      <content textType="body" fontSize="13" fontFamily="微软雅黑" color="rgba(71,85,105,1)" textAlign="center">
+        <p>自动化测试用例</p>
+        <p>0 失败 · 通过率 100%</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="270" topLeftY="170" width="190" height="130" presetHandlers="8">
+      <fill><fillColor color="rgba(248,250,252,1)"/></fill>
+      <border color="rgba(226,232,240,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="270" topLeftY="185" width="190" height="50">
+      <content textType="title" fontSize="36" fontFamily="微软雅黑" color="rgba(0,48,135,1)" bold="true" textAlign="center">
+        <p>77.2%</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="270" topLeftY="245" width="190" height="40">
+      <content textType="body" fontSize="13" fontFamily="微软雅黑" color="rgba(71,85,105,1)" textAlign="center">
+        <p>领域层覆盖率</p>
+        <p>门禁 ≥ 70% · CI 强制</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="480" topLeftY="170" width="190" height="130" presetHandlers="8">
+      <fill><fillColor color="rgba(248,250,252,1)"/></fill>
+      <border color="rgba(226,232,240,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="480" topLeftY="185" width="190" height="50">
+      <content textType="title" fontSize="36" fontFamily="微软雅黑" color="rgba(0,48,135,1)" bold="true" textAlign="center">
+        <p>8</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="480" topLeftY="245" width="190" height="40">
+      <content textType="body" fontSize="13" fontFamily="微软雅黑" color="rgba(71,85,105,1)" textAlign="center">
+        <p>ArchUnit 架构规则</p>
+        <p>DDD 分层边界强制</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="690" topLeftY="170" width="190" height="130" presetHandlers="8">
+      <fill><fillColor color="rgba(240,249,240,1)"/></fill>
+      <border color="rgba(34,197,94,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="690" topLeftY="185" width="190" height="50">
+      <content textType="title" fontSize="36" fontFamily="微软雅黑" color="rgba(22,163,74,1)" bold="true" textAlign="center">
+        <p>全绿</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="690" topLeftY="245" width="190" height="40">
+      <content textType="body" fontSize="13" fontFamily="微软雅黑" color="rgba(71,85,105,1)" textAlign="center">
+        <p>CI 流水线状态</p>
+        <p>后端 / 前端 / 镜像</p>
+      </content>
+    </shape>
+
+    <!-- 各上下文覆盖率明细 -->
+    <shape type="text" topLeftX="60" topLeftY="330" width="840" height="25">
+      <content textType="body" fontSize="14" fontFamily="微软雅黑" color="rgba(0,48,135,1)" bold="true">
+        <p>各限界上下文覆盖率（JaCoCo）</p>
+      </content>
+    </shape>
+
+    <table topLeftX="60" topLeftY="365" width="820" height="110">
+      <colgroup>
+        <col width="200"/>
+        <col width="150"/>
+        <col width="150"/>
+        <col width="320"/>
+      </colgroup>
+      <tr height="30">
+        <td>
+          <fill><fillColor color="rgba(0,48,135,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>上下文</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(0,48,135,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>覆盖率</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(0,48,135,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>门禁</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(0,48,135,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>说明</p></content>
+        </td>
+      </tr>
+      <tr height="20">
+        <td><content textType="body" fontSize="11" textAlign="center"><p>Q&amp;A 问答核心</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center" bold="true" color="rgba(22,163,74,1)"><p>80.7%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>≥ 70%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>核心业务逻辑覆盖最充分</p></content></td>
+      </tr>
+      <tr height="20">
+        <td><content textType="body" fontSize="11" textAlign="center"><p>Discovery 发现</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center" bold="true" color="rgba(22,163,74,1)"><p>79.5%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>≥ 70%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>搜索排序纯函数易测试</p></content></td>
+      </tr>
+      <tr height="20">
+        <td><content textType="body" fontSize="11" textAlign="center"><p>Identity 身份</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center" bold="true" color="rgba(22,163,74,1)"><p>75.7%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>≥ 70%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>权限校验分支覆盖完整</p></content></td>
+      </tr>
+      <tr height="20">
+        <td><content textType="body" fontSize="11" textAlign="center"><p>Reputation 声誉</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center" bold="true" color="rgba(22,163,74,1)"><p>72.5%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>≥ 70%</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>声誉规则表驱动，边界用例齐全</p></content></td>
+      </tr>
+    </table>
+  </data>
+  <note>
+    <content textType="body">
+      <p>质量数据四个核心指标：117 个测试全绿、领域层覆盖率 77.2%、8 条 ArchUnit 规则、CI 三个 Job 全绿。</p>
+      <p>覆盖率门禁是 CI 强制的——低于 70% 直接红灯，不允许合并。</p>
+      <p>Q&amp;A 和 Discovery 上下文覆盖率最高，因为核心业务逻辑都集中在 domain 层，纯 Java 不依赖框架，写测试很容易。</p>
+    </content>
+  </note>
+</slide>

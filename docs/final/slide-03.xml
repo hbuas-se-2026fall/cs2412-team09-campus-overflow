@@ -1,0 +1,46 @@
+<slide>
+  <style><fill><fillColor color="rgba(255,255,255,1)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="60" width="800" height="40">
+      <content textType="caption" fontSize="12" fontFamily="微软雅黑" color="rgba(0,112,186,1)" bold="true"><p>01 · 项目背景</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="90" width="800" height="50">
+      <content textType="title" fontSize="28" fontFamily="微软雅黑" color="rgba(0,28,84,1)" bold="true">
+        <p>做一个大学校园版的 Stack Overflow</p>
+      </content>
+    </shape>
+    <line startX="80" startY="160" endX="880" endY="160">
+      <border color="rgba(226,232,240,1)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="80" topLeftY="190" width="380" height="30">
+      <content textType="body" fontSize="15" fontFamily="微软雅黑" color="rgba(15,23,42,1)" bold="true"><p>问题</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="225" width="380" height="180">
+      <content textType="body" fontSize="14" fontFamily="微软雅黑" color="rgba(71,85,105,1)" lineSpacing="multiple:1.6">
+        <ul>
+          <li><p>课程提问散落在微信群、QQ群，找不到、搜不到</p></li>
+          <li><p>教师无法识别优质回答，也没有积分激励</p></li>
+          <li><p>现有平台（知乎/Stack Overflow）不区分课程场景</p></li>
+        </ul>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="500" topLeftY="190" width="380" height="30">
+      <content textType="body" fontSize="15" fontFamily="微软雅黑" color="rgba(15,23,42,1)" bold="true"><p>目标</p></content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="225" width="380" height="180">
+      <content textType="body" fontSize="14" fontFamily="微软雅黑" color="rgba(71,85,105,1)" lineSpacing="multiple:1.6">
+        <ul>
+          <li><p>学生按课程提问、回答、投票、采纳最佳答案</p></li>
+          <li><p>教师给优质回答打"教师认证"标签，发起悬赏</p></li>
+          <li><p>声誉账本 + 徽章 + 排行榜，激励高质量回答</p></li>
+          <li><p>中文全文检索、相关问题推荐、站内通知</p></li>
+        </ul>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body" fontSize="12"><p>背景很简单：课程里的问题都在群里，沉淀不下来。我们要做一个按课程组织、有声誉激励、教师能认证优质回答的问答社区。</p></content>
+  </note>
+</slide>

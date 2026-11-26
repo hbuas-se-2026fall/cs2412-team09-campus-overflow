@@ -1,0 +1,221 @@
+<presentation id="AFLjs50UWlGgxud3hSjc2NUWnjP" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>CampusOverflow 答辩</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pLL">
+    <style>
+      <fill id="fLL">
+        <fillColor color="rgba(255, 255, 255, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="12" height="540" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bok">
+        <fill>
+          <fillColor color="rgba(0, 48, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="800" height="70" topLeftX="80" topLeftY="140" type="text" id="boD">
+        <content textType="title" fontSize="48" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>CampusOverflow 校园问答平台</p>
+        </content>
+      </shape>
+      <shape width="800" height="40" topLeftX="80" topLeftY="220" type="text" id="boA">
+        <content textType="headline" fontSize="20" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" bold="true">
+          <p>模块化单体 · DDD 领域驱动设计 · Scrum 八周交付</p>
+        </content>
+      </shape>
+      <line id="boa" startX="80" startY="290" endX="280.00249998437516" endY="290">
+        <border color="rgba(0, 112, 186, 1)" width="3"/>
+      </line>
+      <shape width="800" height="30" topLeftX="80" topLeftY="320" type="text" id="boW">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>团队 09 · 黄嘉胜 / H-Canopy / xing-ding / Twh743 / 1311948</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="80" topLeftY="360" type="text" id="bou">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>软件工程课程贯穿项目 · 2026 年秋季</p>
+        </content>
+      </shape>
+    </data>
+    <note id="boy">
+      <content>
+        <p>各位老师好，我们是团队 09。今天汇报的项目是 CampusOverflow，一个面向高校师生的课程问答社区。八周时间我们按 Scrum 节奏交付了一个可部署、可演示、CI 全绿的系统。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLH">
+    <style>
+      <fill id="fLH">
+        <fillColor color="rgba(255, 255, 255, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="800" height="50" topLeftX="80" topLeftY="60" type="text" id="bon">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>汇报内容</p>
+        </content>
+      </shape>
+      <line id="bof" startX="80" startY="120" endX="880.0006249997559" endY="120">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="60" height="40" topLeftX="80" topLeftY="160" type="text" id="bop">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="160" topLeftY="160" type="text" id="boV">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>项目背景与目标</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="160" topLeftY="190" type="text" id="boT">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>为什么做这个项目</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="500" topLeftY="160" type="text" id="bob">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="580" topLeftY="160" type="text" id="boH">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>架构与领域设计</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="580" topLeftY="190" type="text" id="boi">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>六个模块 · DDD 五层</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="80" topLeftY="250" type="text" id="boQ">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="160" topLeftY="250" type="text" id="bow">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>核心链路演示</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="160" topLeftY="280" type="text" id="boj">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>提问 → 回答 → 采纳 → 声誉</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="500" topLeftY="250" type="text" id="bom">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>04</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="580" topLeftY="250" type="text" id="boI">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>质量数据</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="580" topLeftY="280" type="text" id="boO">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>112 测试 · 77.2% 覆盖率 · CI 全绿</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="80" topLeftY="340" type="text" id="boR">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>05</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="160" topLeftY="340" type="text" id="box">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>踩坑与反思</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="160" topLeftY="370" type="text" id="boS">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>八周里真正学到的东西</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bol">
+      <content>
+        <p>今天汇报分五部分：背景、架构、核心链路、质量数据、踩坑反思。重点在第三和第四部分。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLW">
+    <style>
+      <fill id="fLW">
+        <fillColor color="rgba(255, 255, 255, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="800" height="40" topLeftX="80" topLeftY="60" type="text" id="boE">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>01 · 项目背景</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="90" type="text" id="bog">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>做一个大学校园版的 Stack Overflow</p>
+        </content>
+      </shape>
+      <line id="boP" startX="80" startY="160" endX="880.0006249997559" endY="160">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="380" height="30" topLeftX="80" topLeftY="190" type="text" id="boo">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>问题</p>
+        </content>
+      </shape>
+      <shape width="380" height="180" topLeftX="80" topLeftY="225" type="text" id="bod">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>课程提问散落在微信群、QQ群，找不到、搜不到</p>
+            </li>
+            <li>
+              <p>教师无法识别优质回答，也没有积分激励</p>
+            </li>
+            <li>
+              <p>现有平台（知乎/Stack Overflow）不区分课程场景</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="380" height="30" topLeftX="500" topLeftY="190" type="text" id="boF">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>目标</p>
+        </content>
+      </shape>
+      <shape width="380" height="180" topLeftX="500" topLeftY="225" type="text" id="boz">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>学生按课程提问、回答、投票、采纳最佳答案</p>
+            </li>
+            <li>
+              <p>教师给优质回答打&quot;教师认证&quot;标签，发起悬赏</p>
+            </li>
+            <li>
+              <p>声誉账本 + 徽章 + 排行榜，激励高质量回答</p>
+            </li>
+            <li>
+              <p>中文全文检索、相关问题推荐、站内通知</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+    </data>
+    <note id="bos">
+      <content>
+        <p>背景很简单：课程里的问题都在群里，沉淀不下来。我们要做一个按课程组织、有声誉激励、教师能认证优质回答的问答社区。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>

@@ -1,0 +1,1064 @@
+<presentation id="AFLjs50UWlGgxud3hSjc2NUWnjP" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>CampusOverflow 答辩</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pLL">
+    <style>
+      <fill id="fLL">
+        <fillColor color="rgba(255, 255, 255, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="12" height="540" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bok">
+        <fill>
+          <fillColor color="rgba(0, 48, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="800" height="70" topLeftX="80" topLeftY="140" type="text" id="boD">
+        <content textType="title" fontSize="48" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>CampusOverflow 校园问答平台</p>
+        </content>
+      </shape>
+      <shape width="800" height="40" topLeftX="80" topLeftY="220" type="text" id="boA">
+        <content textType="headline" fontSize="20" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" bold="true">
+          <p>模块化单体 · DDD 领域驱动设计 · Scrum 八周交付</p>
+        </content>
+      </shape>
+      <line id="boa" startX="80" startY="290" endX="280.00249998437516" endY="290">
+        <border color="rgba(0, 112, 186, 1)" width="3"/>
+      </line>
+      <shape width="800" height="30" topLeftX="80" topLeftY="320" type="text" id="boW">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>团队 09 · 黄嘉胜 / H-Canopy / xing-ding / Twh743 / 1311948</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="80" topLeftY="360" type="text" id="bou">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>软件工程课程贯穿项目 · 2026 年秋季</p>
+        </content>
+      </shape>
+    </data>
+    <note id="boy">
+      <content>
+        <p>各位老师好，我们是团队 09。今天汇报的项目是 CampusOverflow，一个面向高校师生的课程问答社区。八周时间我们按 Scrum 节奏交付了一个可部署、可演示、CI 全绿的系统。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLH">
+    <style>
+      <fill id="fLH">
+        <fillColor color="rgba(255, 255, 255, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="800" height="50" topLeftX="80" topLeftY="60" type="text" id="bon">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>汇报内容</p>
+        </content>
+      </shape>
+      <line id="bof" startX="80" startY="120" endX="880.0006249997559" endY="120">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="60" height="40" topLeftX="80" topLeftY="160" type="text" id="bop">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="160" topLeftY="160" type="text" id="boV">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>项目背景与目标</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="160" topLeftY="190" type="text" id="boT">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>为什么做这个项目</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="500" topLeftY="160" type="text" id="bob">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="580" topLeftY="160" type="text" id="boH">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>架构与领域设计</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="580" topLeftY="190" type="text" id="boi">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>六个模块 · DDD 五层</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="80" topLeftY="250" type="text" id="boQ">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="160" topLeftY="250" type="text" id="bow">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>核心链路演示</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="160" topLeftY="280" type="text" id="boj">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>提问 → 回答 → 采纳 → 声誉</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="500" topLeftY="250" type="text" id="bom">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>04</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="580" topLeftY="250" type="text" id="boI">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>质量数据</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="580" topLeftY="280" type="text" id="boO">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>112 测试 · 77.2% 覆盖率 · CI 全绿</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="80" topLeftY="340" type="text" id="boR">
+        <content textType="headline" fontSize="22" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>05</p>
+        </content>
+      </shape>
+      <shape width="300" height="30" topLeftX="160" topLeftY="340" type="text" id="box">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>踩坑与反思</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="160" topLeftY="370" type="text" id="boS">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>八周里真正学到的东西</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bol">
+      <content>
+        <p>今天汇报分五部分：背景、架构、核心链路、质量数据、踩坑反思。重点在第三和第四部分。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLW">
+    <style>
+      <fill id="fLW">
+        <fillColor color="rgba(255, 255, 255, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="800" height="40" topLeftX="80" topLeftY="60" type="text" id="boE">
+        <content textType="caption" fontSize="12" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>01 · 项目背景</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="90" type="text" id="bog">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>做一个大学校园版的 Stack Overflow</p>
+        </content>
+      </shape>
+      <line id="boP" startX="80" startY="160" endX="880.0006249997559" endY="160">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="380" height="30" topLeftX="80" topLeftY="190" type="text" id="boo">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>问题</p>
+        </content>
+      </shape>
+      <shape width="380" height="180" topLeftX="80" topLeftY="225" type="text" id="bod">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>课程提问散落在微信群、QQ群，找不到、搜不到</p>
+            </li>
+            <li>
+              <p>教师无法识别优质回答，也没有积分激励</p>
+            </li>
+            <li>
+              <p>现有平台（知乎/Stack Overflow）不区分课程场景</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="380" height="30" topLeftX="500" topLeftY="190" type="text" id="boF">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(15, 23, 42, 1)" bold="true">
+          <p>目标</p>
+        </content>
+      </shape>
+      <shape width="380" height="180" topLeftX="500" topLeftY="225" type="text" id="boz">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>学生按课程提问、回答、投票、采纳最佳答案</p>
+            </li>
+            <li>
+              <p>教师给优质回答打&quot;教师认证&quot;标签，发起悬赏</p>
+            </li>
+            <li>
+              <p>声誉账本 + 徽章 + 排行榜，激励高质量回答</p>
+            </li>
+            <li>
+              <p>中文全文检索、相关问题推荐、站内通知</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+    </data>
+    <note id="bos">
+      <content>
+        <p>背景很简单：课程里的问题都在群里，沉淀不下来。我们要做一个按课程组织、有声誉激励、教师能认证优质回答的问答社区。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLv">
+    <style/>
+    <data>
+      <shape width="840" height="50" topLeftX="60" topLeftY="40" type="text" id="bor">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>六个限界上下文 · DDD 模块化单体</p>
+        </content>
+      </shape>
+      <line id="boc" startX="60" startY="100" endX="180.00416659433122" endY="100">
+        <border color="rgba(0, 48, 135, 1)" width="3"/>
+      </line>
+      <shape width="840" height="30" topLeftX="60" topLeftY="115" type="text" id="boB">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>每个上下文独立 Maven 模块，跨上下文只依赖对方 *-api，由 ArchUnit 强制边界</p>
+        </content>
+      </shape>
+      <shape width="250" height="120" topLeftX="60" topLeftY="170" presetHandlers="8" type="rect" id="boG">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.5)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="75" topLeftY="185" type="text" id="bss">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>Discovery 发现</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="75" topLeftY="220" type="text" id="boN">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.4">
+          <p>问题浏览、搜索推荐、</p>
+          <p>@提醒、通知中心</p>
+        </content>
+      </shape>
+      <shape width="250" height="120" topLeftX="355" topLeftY="170" presetHandlers="8" type="rect" id="boq">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.5)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="370" topLeftY="185" type="text" id="boJ">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>Q&amp;A 问答核心</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="370" topLeftY="220" type="text" id="boM">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.4">
+          <p>提问、回答、采纳、</p>
+          <p>投票、教师认证</p>
+        </content>
+      </shape>
+      <shape width="250" height="120" topLeftX="650" topLeftY="170" presetHandlers="8" type="rect" id="bso">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.5)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="665" topLeftY="185" type="text" id="bsF">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>Reputation 声誉</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="665" topLeftY="220" type="text" id="boK">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.4">
+          <p>声誉账本、徽章、</p>
+          <p>排行榜、悬赏结算</p>
+        </content>
+      </shape>
+      <shape width="250" height="120" topLeftX="60" topLeftY="320" presetHandlers="8" type="rect" id="bov">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.5)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="75" topLeftY="335" type="text" id="boU">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>Identity 身份</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="75" topLeftY="370" type="text" id="boY">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.4">
+          <p>注册登录、角色权限、</p>
+          <p>管理员封禁、课程管理</p>
+        </content>
+      </shape>
+      <shape width="250" height="120" topLeftX="355" topLeftY="320" presetHandlers="8" type="rect" id="boX">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.5)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="370" topLeftY="335" type="text" id="bsE">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>Mobile 移动端</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="370" topLeftY="370" type="text" id="boZ">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.4">
+          <p>响应式适配、</p>
+          <p>移动端交互优化</p>
+        </content>
+      </shape>
+      <shape width="250" height="120" topLeftX="650" topLeftY="320" presetHandlers="8" type="rect" id="boe">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.5)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="665" topLeftY="335" type="text" id="boC">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>Admin 管理</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="665" topLeftY="370" type="text" id="bot">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.4">
+          <p>内容审核、用户管理、</p>
+          <p>数据统计后台</p>
+        </content>
+      </shape>
+      <line id="boL" startX="60" startY="470" endX="900.0005952378843" endY="470">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="840" height="25" topLeftX="60" topLeftY="480" type="text" id="bsd">
+        <content textType="caption" fontSize="11" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>架构决策记录见 docs/adr/ · 上下文映射图见 docs/ddd/</p>
+        </content>
+      </shape>
+    </data>
+    <note id="boh">
+      <content>
+        <p>整个系统按 DDD 拆成六个限界上下文，每个都是独立的 Maven 模块。</p>
+        <p>跨上下文只允许通过 api 包调用，ArchUnit 六条规则在 CI 里强制，违反直接红灯。</p>
+        <p>这样做的好处是五个人各守一个上下文，并行开发不会打架。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLu">
+    <style/>
+    <data>
+      <shape width="840" height="50" topLeftX="60" topLeftY="40" type="text" id="bsD">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>DDD 五层架构 · 边界由 CI 强制</p>
+        </content>
+      </shape>
+      <line id="bsy" startX="60" startY="100" endX="180.00416659433122" endY="100">
+        <border color="rgba(0, 48, 135, 1)" width="3"/>
+      </line>
+      <shape width="840" height="30" topLeftX="60" topLeftY="115" type="text" id="bsI">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>每个限界上下文内部再分五层，domain 层零依赖，ArchUnit 六条规则在 CI 里强制</p>
+        </content>
+      </shape>
+      <shape width="600" height="55" topLeftX="180" topLeftY="170" presetHandlers="4" type="rect" id="bsw">
+        <fill>
+          <fillColor color="rgba(0, 112, 186, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="560" height="35" topLeftX="200" topLeftY="180" type="text" id="bsg">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>interfaces 接口层 · Controller / DTO / REST API</p>
+        </content>
+      </shape>
+      <shape width="600" height="55" topLeftX="180" topLeftY="235" presetHandlers="4" type="rect" id="bsW">
+        <fill>
+          <fillColor color="rgba(69, 140, 200, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="560" height="35" topLeftX="200" topLeftY="245" type="text" id="bsa">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>application 应用层 · 用例编排 / 事务 / 权限校验</p>
+        </content>
+      </shape>
+      <shape width="600" height="60" topLeftX="180" topLeftY="300" presetHandlers="4" type="rect" id="bsk">
+        <fill>
+          <fillColor color="rgba(0, 48, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="560" height="40" topLeftX="200" topLeftY="310" type="text" id="bsb">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>domain 领域层 · 聚合根 / 实体 / 领域服务 / 领域事件</p>
+        </content>
+      </shape>
+      <shape width="600" height="55" topLeftX="180" topLeftY="370" presetHandlers="4" type="rect" id="bsz">
+        <fill>
+          <fillColor color="rgba(100, 150, 200, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="560" height="35" topLeftX="200" topLeftY="380" type="text" id="bsA">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>infrastructure 基础设施层 · JPA Repository / 消息队列 / 外部 API</p>
+        </content>
+      </shape>
+      <shape width="600" height="45" topLeftX="180" topLeftY="435" presetHandlers="4" type="rect" id="bsu">
+        <fill>
+          <fillColor color="rgba(180, 200, 220, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="560" height="25" topLeftX="200" topLeftY="445" type="text" id="bsP">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>bootstrap 启动层 · Spring Boot 主类 / 配置 / 健康检查</p>
+        </content>
+      </shape>
+      <shape width="100" height="80" topLeftX="60" topLeftY="290" type="text" id="bsn">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" textAlign="right">
+          <p>上层依赖下层</p>
+          <p>下层不感知上层</p>
+          <p>domain 零依赖</p>
+        </content>
+      </shape>
+      <shape width="840" height="25" topLeftX="60" topLeftY="495" type="text" id="bsf">
+        <content textType="caption" fontSize="11" fontFamily="Microsoft YaHei" color="rgba(100, 116, 139, 1)">
+          <p>ArchUnit 六条规则：FF-1 domain 不依赖 Spring · FF-2 application 只依赖本域 domain · FF-3 infrastructure 实现 domain 接口 · FF-4~6 跨上下文只走 api 包</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bsO">
+      <content>
+        <p>每个上下文内部再分五层，最核心的是 domain 层——纯 Java，不依赖任何框架。</p>
+        <p>依赖方向是从上到下的，上层可以调下层，下层不能反过来知道上层的存在。</p>
+        <p>ArchUnit 写了六条规则，CI 里跑，谁写反了依赖直接红灯，从机制上保证架构不腐化。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLT">
+    <style/>
+    <data>
+      <shape width="840" height="50" topLeftX="60" topLeftY="40" type="text" id="bsc">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>核心链路 · 提问 → 回答 → 采纳 → 声誉增长</p>
+        </content>
+      </shape>
+      <line id="bsR" startX="60" startY="100" endX="180.00416659433122" endY="100">
+        <border color="rgba(0, 48, 135, 1)" width="3"/>
+      </line>
+      <shape width="840" height="30" topLeftX="60" topLeftY="115" type="text" id="bsj">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>一条完整的用户旅程，跨三个限界上下文，通过领域事件解耦</p>
+        </content>
+      </shape>
+      <shape width="180" height="170" topLeftX="60" topLeftY="170" presetHandlers="8" type="rect" id="bsm">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="150" height="30" topLeftX="75" topLeftY="185" type="text" id="bsh">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>01 学生提问</p>
+        </content>
+      </shape>
+      <shape width="150" height="90" topLeftX="75" topLeftY="230" type="text" id="bsq">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>填写标题正文</p>
+          <p>选择课程标签</p>
+          <p>提交发布</p>
+        </content>
+      </shape>
+      <line id="bsx" startX="245" startY="255" endX="285.0124980474851" endY="255">
+        <border color="rgba(0, 112, 186, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="180" height="170" topLeftX="290" topLeftY="170" presetHandlers="8" type="rect" id="bsS">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="150" height="30" topLeftX="305" topLeftY="185" type="text" id="bsl">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>02 同学回答</p>
+        </content>
+      </shape>
+      <shape width="150" height="90" topLeftX="305" topLeftY="230" type="text" id="bsN">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>浏览相关问题</p>
+          <p>输入回答内容</p>
+          <p>发布评论互动</p>
+        </content>
+      </shape>
+      <line id="bsv" startX="475" startY="255" endX="515.0124980474851" endY="255">
+        <border color="rgba(0, 112, 186, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="180" height="170" topLeftX="520" topLeftY="170" presetHandlers="8" type="rect" id="bsp">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="150" height="30" topLeftX="535" topLeftY="185" type="text" id="bsV">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(0, 112, 186, 1)" bold="true">
+          <p>03 提问者采纳</p>
+        </content>
+      </shape>
+      <shape width="150" height="90" topLeftX="535" topLeftY="230" type="text" id="bsT">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>选择最佳答案</p>
+          <p>置顶展示</p>
+          <p>触发领域事件</p>
+        </content>
+      </shape>
+      <line id="bsK" startX="705" startY="255" endX="745.0124980474851" endY="255">
+        <border color="rgba(0, 112, 186, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="180" height="170" topLeftX="750" topLeftY="170" presetHandlers="8" type="rect" id="bse">
+        <fill>
+          <fillColor color="rgba(0, 48, 135, 0.1)"/>
+        </fill>
+        <border color="rgba(0, 48, 135, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="150" height="30" topLeftX="765" topLeftY="185" type="text" id="bsH">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>04 声誉结算</p>
+        </content>
+      </shape>
+      <shape width="150" height="90" topLeftX="765" topLeftY="230" type="text" id="bsi">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>回答者 +15</p>
+          <p>提问者 -5</p>
+          <p>通知中心推送</p>
+        </content>
+      </shape>
+      <line id="bsQ" startX="60" startY="380" endX="900.0005952378843" endY="380">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="840" height="80" topLeftX="60" topLeftY="395" type="text" id="bsZ">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p><strong><span color="rgba(0, 48, 135, 1)">跨上下文解耦：</span></strong>Q&amp;A 上下文发布「答案被采纳」领域事件，Reputation 上下文订阅后自动结算积分，Discovery 上下文订阅后推送通知。三个上下文互不直接调用，只通过事件总线通信。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bsr">
+      <content>
+        <p>这是用户最核心的一条旅程：学生提问、同学回答、提问者采纳、最后声誉自动结算。</p>
+        <p>关键设计是三个上下文之间不直接调用，而是通过领域事件解耦——Q&amp;A 发事件，Reputation 和 Discovery 各自订阅。</p>
+        <p>这样以后要加新功能（比如发邮件通知），只需要再加一个订阅者，不用改核心链路代码。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLA">
+    <style/>
+    <data>
+      <shape width="840" height="50" topLeftX="60" topLeftY="40" type="text" id="bdR">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>质量数据 · 112 测试全绿，领域层覆盖率 77.2%</p>
+        </content>
+      </shape>
+      <line id="bdx" startX="60" startY="100" endX="180.00416659433122" endY="100">
+        <border color="rgba(0, 48, 135, 1)" width="3"/>
+      </line>
+      <shape width="840" height="30" topLeftX="60" topLeftY="115" type="text" id="bdl">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>CI 三道门禁：单元测试 → ArchUnit 架构约束 → 覆盖率门禁（≥70%）</p>
+        </content>
+      </shape>
+      <shape width="190" height="130" topLeftX="60" topLeftY="170" presetHandlers="8" type="rect" id="bdq">
+        <fill>
+          <fillColor color="rgba(248, 250, 252, 1)"/>
+        </fill>
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="50" topLeftX="60" topLeftY="185" type="text" id="bdk">
+        <content textType="title" fontSize="36" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true" textAlign="center">
+          <p>112</p>
+        </content>
+      </shape>
+      <shape width="190" height="40" topLeftX="60" topLeftY="245" type="text" id="bdH">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" textAlign="center">
+          <p>自动化测试用例</p>
+          <p>0 失败 · 通过率 100%</p>
+        </content>
+      </shape>
+      <shape width="190" height="130" topLeftX="270" topLeftY="170" presetHandlers="8" type="rect" id="bdj">
+        <fill>
+          <fillColor color="rgba(248, 250, 252, 1)"/>
+        </fill>
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="50" topLeftX="270" topLeftY="185" type="text" id="bdh">
+        <content textType="title" fontSize="36" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true" textAlign="center">
+          <p>77.2%</p>
+        </content>
+      </shape>
+      <shape width="190" height="40" topLeftX="270" topLeftY="245" type="text" id="bdc">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" textAlign="center">
+          <p>领域层覆盖率</p>
+          <p>门禁 ≥ 70% · CI 强制</p>
+        </content>
+      </shape>
+      <shape width="190" height="130" topLeftX="480" topLeftY="170" presetHandlers="8" type="rect" id="bdn">
+        <fill>
+          <fillColor color="rgba(248, 250, 252, 1)"/>
+        </fill>
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="50" topLeftX="480" topLeftY="185" type="text" id="bdp">
+        <content textType="title" fontSize="36" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true" textAlign="center">
+          <p>6</p>
+        </content>
+      </shape>
+      <shape width="190" height="40" topLeftX="480" topLeftY="245" type="text" id="bdi">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" textAlign="center">
+          <p>ArchUnit 架构规则</p>
+          <p>DDD 分层边界强制</p>
+        </content>
+      </shape>
+      <shape width="190" height="130" topLeftX="690" topLeftY="170" presetHandlers="8" type="rect" id="bdZ">
+        <fill>
+          <fillColor color="rgba(240, 249, 240, 1)"/>
+        </fill>
+        <border color="rgba(34, 197, 94, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="50" topLeftX="690" topLeftY="185" type="text" id="bdC">
+        <content textType="title" fontSize="36" fontFamily="Microsoft YaHei" color="rgba(22, 163, 74, 1)" bold="true" textAlign="center">
+          <p>全绿</p>
+        </content>
+      </shape>
+      <shape width="190" height="40" topLeftX="690" topLeftY="245" type="text" id="bdI">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" textAlign="center">
+          <p>CI 流水线状态</p>
+          <p>后端 / 前端 / 镜像</p>
+        </content>
+      </shape>
+      <shape width="840" height="25" topLeftX="60" topLeftY="330" type="text" id="bdV">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>各限界上下文覆盖率（JaCoCo）</p>
+        </content>
+      </shape>
+      <table id="bdK" width="820" height="90" topLeftX="60" topLeftY="365">
+        <colgroup>
+          <col span="1" width="200"/>
+          <col span="2" width="150"/>
+          <col span="1" width="320"/>
+        </colgroup>
+        <tr height="30">
+          <td id="bdU">
+            <fill>
+              <fillColor color="rgba(0, 48, 135, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>上下文</p>
+            </content>
+          </td>
+          <td id="bdw">
+            <fill>
+              <fillColor color="rgba(0, 48, 135, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>覆盖率</p>
+            </content>
+          </td>
+          <td id="bdS">
+            <fill>
+              <fillColor color="rgba(0, 48, 135, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>门禁</p>
+            </content>
+          </td>
+          <td id="bdN">
+            <fill>
+              <fillColor color="rgba(0, 48, 135, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>说明</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="20">
+          <td id="bdJ">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>Q&amp;A 问答核心</p>
+            </content>
+          </td>
+          <td id="bdb">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(22, 163, 74, 1)" bold="true">
+              <p>80.5%</p>
+            </content>
+          </td>
+          <td id="bdm">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>≥ 70%</p>
+            </content>
+          </td>
+          <td id="bdr">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>核心业务逻辑覆盖最充分</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="20">
+          <td id="bdB">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>Discovery 发现</p>
+            </content>
+          </td>
+          <td id="bdf">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(22, 163, 74, 1)" bold="true">
+              <p>79.5%</p>
+            </content>
+          </td>
+          <td id="bdQ">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>≥ 70%</p>
+            </content>
+          </td>
+          <td id="bde">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>搜索排序纯函数易测试</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="20">
+          <td id="bdy">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>Identity 身份</p>
+            </content>
+          </td>
+          <td id="bdO">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(22, 163, 74, 1)" bold="true">
+              <p>75.7%</p>
+            </content>
+          </td>
+          <td id="bdT">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>≥ 70%</p>
+            </content>
+          </td>
+          <td id="bdv">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>权限校验分支覆盖完整</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+    </data>
+    <note id="bda">
+      <content>
+        <p>质量数据四个核心指标：112 个测试全绿、领域层覆盖率 77.2%、六条 ArchUnit 规则、CI 三个 Job 全绿。</p>
+        <p>覆盖率门禁是 CI 强制的——低于 70% 直接红灯，不允许合并。</p>
+        <p>Q&amp;A 和 Discovery 上下文覆盖率最高，因为核心业务逻辑都集中在 domain 层，纯 Java 不依赖框架，写测试很容易。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLk">
+    <style/>
+    <data>
+      <shape width="840" height="50" topLeftX="60" topLeftY="40" type="text" id="bsJ">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>团队协作 · 5 人环形评审 + WIP 看板</p>
+        </content>
+      </shape>
+      <line id="bsM" startX="60" startY="100" endX="180.00416659433122" endY="100">
+        <border color="rgba(0, 48, 135, 1)" width="3"/>
+      </line>
+      <shape width="840" height="30" topLeftX="60" topLeftY="115" type="text" id="bdo">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>PO / SM / Dev / QA / 部署五角色，每日站会对齐，PR 环形评审不自批</p>
+        </content>
+      </shape>
+      <shape width="150" height="110" topLeftX="60" topLeftY="170" presetHandlers="8" type="rect" id="bdF">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="25" topLeftX="75" topLeftY="185" type="text" id="bdP">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>① PO 黄嘉胜</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="75" topLeftY="215" type="text" id="bdu">
+        <content fontSize="11" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>产品 Backlog</p>
+          <p>优先级排序</p>
+          <p>Sprint Review</p>
+        </content>
+      </shape>
+      <shape width="150" height="110" topLeftX="230" topLeftY="170" presetHandlers="8" type="rect" id="bsU">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="25" topLeftX="245" topLeftY="185" type="text" id="bsY">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>② SM H-Canopy</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="245" topLeftY="215" type="text" id="bsX">
+        <content fontSize="11" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>流程效率</p>
+          <p>障碍清除</p>
+          <p>看板维护</p>
+        </content>
+      </shape>
+      <shape width="150" height="110" topLeftX="400" topLeftY="170" presetHandlers="8" type="rect" id="bdE">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="25" topLeftX="415" topLeftY="185" type="text" id="bdz">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>③ xing-ding</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="415" topLeftY="215" type="text" id="bdA">
+        <content fontSize="11" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>QA 测试</p>
+          <p>覆盖率门禁</p>
+          <p>质量报告</p>
+        </content>
+      </shape>
+      <shape width="150" height="110" topLeftX="570" topLeftY="170" presetHandlers="8" type="rect" id="bsC">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="25" topLeftX="585" topLeftY="185" type="text" id="bst">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>④ Twh743</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="585" topLeftY="215" type="text" id="bsL">
+        <content fontSize="11" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>前端开发</p>
+          <p>React 页面</p>
+          <p>移动端适配</p>
+        </content>
+      </shape>
+      <shape width="150" height="110" topLeftX="740" topLeftY="170" presetHandlers="8" type="rect" id="bdd">
+        <fill>
+          <fillColor color="rgba(212, 229, 247, 0.6)"/>
+        </fill>
+        <border color="rgba(0, 112, 186, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="25" topLeftX="755" topLeftY="185" type="text" id="bdW">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true">
+          <p>⑤ 1311948</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="755" topLeftY="215" type="text" id="bsB">
+        <content fontSize="11" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>部署运维</p>
+          <p>Docker Compose</p>
+          <p>监控 Grafana</p>
+        </content>
+      </shape>
+      <line id="bsG" startX="60" startY="320" endX="900.0005952378843" endY="320">
+        <border color="rgba(226, 232, 240, 1)" width="1"/>
+      </line>
+      <shape width="400" height="120" topLeftX="60" topLeftY="340" type="text" id="bds">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.8">
+          <p><strong><span color="rgba(0, 48, 135, 1)">PR 环形评审：</span></strong></p>
+          <p>① → ② → ③ → ④ → ⑤ → ①</p>
+          <p>不能自己批自己，每人至少留 5 条意见</p>
+        </content>
+      </shape>
+      <shape width="400" height="120" topLeftX="500" topLeftY="340" type="text" id="bdg">
+        <content fontSize="13" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.8">
+          <p><strong><span color="rgba(0, 48, 135, 1)">看板 WIP 限制：</span></strong></p>
+          <p>In Progress 列上限 2 张卡</p>
+          <p>防止同时开多任务导致全部卡住</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bdD">
+      <content>
+        <p>团队五个人五个角色：PO 管产品、SM 管流程、QA 管质量、前端管界面、部署管运维。</p>
+        <p>PR 评审是环形的——每个人批下一个人的代码，不能自己批自己，保证至少两个人看过代码。</p>
+        <p>看板设了 WIP 限制，In Progress 最多两张卡，防止有人同时开三个任务最后每个都卡住。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLw">
+    <style/>
+    <data>
+      <shape width="840" height="50" topLeftX="60" topLeftY="40" type="text" id="bdL">
+        <content textType="title" fontSize="28" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true">
+          <p>踩过的坑与反思</p>
+        </content>
+      </shape>
+      <line id="bEd" startX="60" startY="100" endX="180.00416659433122" endY="100">
+        <border color="rgba(0, 48, 135, 1)" width="3"/>
+      </line>
+      <shape width="840" height="30" topLeftX="60" topLeftY="115" type="text" id="bEz">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)">
+          <p>四个印象最深的教训，以及我们后来怎么改的</p>
+        </content>
+      </shape>
+      <shape width="410" height="140" topLeftX="60" topLeftY="170" presetHandlers="8" type="rect" id="bdY">
+        <fill>
+          <fillColor color="rgba(254, 243, 199, 0.5)"/>
+        </fill>
+        <border color="rgba(217, 119, 6, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="370" height="30" topLeftX="80" topLeftY="185" type="text" id="bdX">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(180, 83, 9, 1)" bold="true">
+          <p>坑 1：相似度排序 bug，同分会乱序</p>
+        </content>
+      </shape>
+      <shape width="370" height="80" topLeftX="80" topLeftY="220" type="text" id="bEE">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>问题：搜索推荐的 Jaccard 相似度相同时，排序不稳定</p>
+          <p>修复：加第二排序键（score 降序），补回归测试用例</p>
+        </content>
+      </shape>
+      <shape width="410" height="140" topLeftX="490" topLeftY="170" presetHandlers="8" type="rect" id="bEP">
+        <fill>
+          <fillColor color="rgba(254, 243, 199, 0.5)"/>
+        </fill>
+        <border color="rgba(217, 119, 6, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="370" height="30" topLeftX="510" topLeftY="185" type="text" id="bdM">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(180, 83, 9, 1)" bold="true">
+          <p>坑 2：前端字符集乱码</p>
+        </content>
+      </shape>
+      <shape width="370" height="80" topLeftX="510" topLeftY="220" type="text" id="bEo">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>问题：Docker 部署后中文乱码，JDBC URL 没指定编码</p>
+          <p>修复：application.yml 加 characterEncoding=utf8，镜像统一设 LANG</p>
+        </content>
+      </shape>
+      <shape width="410" height="140" topLeftX="60" topLeftY="330" presetHandlers="8" type="rect" id="bEF">
+        <fill>
+          <fillColor color="rgba(254, 243, 199, 0.5)"/>
+        </fill>
+        <border color="rgba(217, 119, 6, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="370" height="30" topLeftX="80" topLeftY="345" type="text" id="bED">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(180, 83, 9, 1)" bold="true">
+          <p>坑 3：WSL/Docker 环境装不上</p>
+        </content>
+      </shape>
+      <shape width="370" height="80" topLeftX="80" topLeftY="380" type="text" id="bdG">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>问题：WSL Ubuntu 网络不通，Docker 镜像拉不下来</p>
+          <p>修复：手动装 wsl_update.msi + 换国内镜像源，本地跑通后 CI 补全</p>
+        </content>
+      </shape>
+      <shape width="410" height="140" topLeftX="490" topLeftY="330" presetHandlers="8" type="rect" id="bEs">
+        <fill>
+          <fillColor color="rgba(254, 243, 199, 0.5)"/>
+        </fill>
+        <border color="rgba(217, 119, 6, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="370" height="30" topLeftX="510" topLeftY="345" type="text" id="bEg">
+        <content fontSize="15" fontFamily="Microsoft YaHei" color="rgba(180, 83, 9, 1)" bold="true">
+          <p>坑 4：PR 依赖等待，测试全红</p>
+        </content>
+      </shape>
+      <shape width="370" height="80" topLeftX="510" topLeftY="380" type="text" id="bEW">
+        <content fontSize="12" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" lineSpacing="multiple:1.6">
+          <p>问题：跨上下文的测试因为上游没完成而红，误判为缺测试</p>
+          <p>修复：明确「依赖未完成 = 测试暂红」口径，按拓扑顺序合并</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bdt">
+      <content>
+        <p>四个印象最深的坑：排序 bug、字符集乱码、Docker 环境装不上、PR 依赖导致测试误红。</p>
+        <p>每个坑都不是小事——排序 bug 是 QA 写用例才发现的，乱码是部署当天才暴露的。</p>
+        <p>教训是：测试要覆盖边界条件，配置要写死编码，环境问题尽早解决，跨 PR 依赖要提前对齐口径。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pLd">
+    <style/>
+    <data>
+      <shape width="960" height="200" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bEI">
+        <fill>
+          <fillColor color="rgba(0, 48, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="960" height="60" topLeftX="0" topLeftY="70" type="text" id="bEA">
+        <content textType="title" fontSize="40" fontFamily="Microsoft YaHei" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>谢谢聆听</p>
+        </content>
+      </shape>
+      <shape width="960" height="30" topLeftX="0" topLeftY="130" type="text" id="bEy">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(212, 229, 247, 1)" textAlign="center">
+          <p>CampusOverflow · 校园问答平台 · Team 09</p>
+        </content>
+      </shape>
+      <shape width="960" height="35" topLeftX="0" topLeftY="260" type="text" id="bEn">
+        <content fontSize="18" fontFamily="Microsoft YaHei" color="rgba(0, 28, 84, 1)" bold="true" textAlign="center">
+          <p>GitHub: hbuas-se-2026fall/cs2412-team09-campus-overflow</p>
+        </content>
+      </shape>
+      <shape width="960" height="30" topLeftX="0" topLeftY="310" type="text" id="bEw">
+        <content fontSize="14" fontFamily="Microsoft YaHei" color="rgba(71, 85, 105, 1)" textAlign="center">
+          <p>Spring Boot · React · DDD 限界上下文 · 领域事件驱动</p>
+        </content>
+      </shape>
+      <line id="bEu" startX="380" startY="370" endX="580.0024999843752" endY="370">
+        <border color="rgba(0, 112, 186, 1)"/>
+      </line>
+      <shape width="960" height="30" topLeftX="0" topLeftY="390" type="text" id="bEa">
+        <content fontSize="16" fontFamily="Microsoft YaHei" color="rgba(0, 48, 135, 1)" bold="true" textAlign="center">
+          <p>Q &amp; A</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bEk">
+      <content>
+        <p>以上就是我们 Team 09 的全部内容。</p>
+        <p>从需求分析到 DDD 建模，从 CI 质量门禁到 Docker 部署监控，四个 Sprint 完整走了一遍软件工程的全流程。</p>
+        <p>欢迎老师和同学提问。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>
