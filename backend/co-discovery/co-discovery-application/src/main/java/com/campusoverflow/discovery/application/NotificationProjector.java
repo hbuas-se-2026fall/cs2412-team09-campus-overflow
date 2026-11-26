@@ -82,8 +82,9 @@ public class NotificationProjector {
     @EventListener
     @Transactional
     public void on(BadgeAwardedEvent e) {
+        // 徽章挂在排行榜的「我的声誉」里，通知点进去要有去处；之前传 null 会让前端渲染时炸掉
         notify(e.userId(), NotificationType.BADGE_AWARDED, "你获得了徽章「" + e.badgeName() + "」",
-                null, e.eventId(), e.occurredAt());
+                "/leaderboard", e.eventId(), e.occurredAt());
     }
 
     private void notify(long recipientId, NotificationType type, String title, String link, String eventId,
