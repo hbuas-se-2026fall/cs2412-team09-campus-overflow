@@ -118,3 +118,7 @@ article h1 { font-size: 24px; margin-bottom: 4px; }
 .my-rep .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .badge-chip { background: var(--brand); color: #fff; border-radius: 12px; padding: 2px 10px; font-size: 13px; cursor: help; }
 .board tr.me td { background: #fff8e6; font-weight: 600; }
+
+/* 提示文字直接写在输入框里：平时可见，聚焦后隐藏，避免挡住正在输入的内容 */
+input::placeholder, textarea::placeholder { color: #9aa0a6; }
+input:focus::placeholder, textarea:focus::placeholder { color: transparent; }
