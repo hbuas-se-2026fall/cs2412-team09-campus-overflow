@@ -22,7 +22,7 @@
 | 监控 | ✅ | Grafana JVM 内存曲线、Prometheus Target UP |
 | 前端 | ✅ | lint/typecheck 零报错，pre-commit 可拦截 |
 | 文档 | ✅ | docs/ddd、docs/adr、docs/ops、docs/scrum |
-| 答辩 PPT | ✅ | 飞书幻灯片 10 页，导出件 `docs/final/export/CampusOverflow 答辩.pptx`（**尚未提交仓库**） |
+| 答辩 PPT | ✅ | 飞书幻灯片 10 页（未纳入仓库，交付时提供链接） |
 | 演示视频 | ❌ 未产出 | 形态未定（曾讨论「无声 + 屏幕字幕」，未落地） |
 | 最终交付物核对 | 🟡 进行中 | 逐项状态见 `docs/final/scope-and-deferrals.md` |
 
