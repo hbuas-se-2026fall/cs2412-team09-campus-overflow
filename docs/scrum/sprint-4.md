@@ -18,10 +18,13 @@
 
 | 项 | 状态 | 证据 |
 |---|---|---|
-| 部署 | ✅ | deploy/docker-compose.yml，`up -d --build` 一键启动 |
+| 部署 | ✅ | deploy/docker-compose.yml，`up -d --build` 一键启动；公网加固配置见 `deploy/docker-compose.public.yml` |
 | 监控 | ✅ | Grafana JVM 内存曲线、Prometheus Target UP |
 | 前端 | ✅ | lint/typecheck 零报错，pre-commit 可拦截 |
 | 文档 | ✅ | docs/ddd、docs/adr、docs/ops、docs/scrum |
+| 答辩 PPT | ✅ | 飞书幻灯片 10 页（未纳入仓库，交付时提供链接） |
+| 演示视频 | ❌ 未产出 | 形态未定（曾讨论「无声 + 屏幕字幕」，未落地） |
+| 最终交付物核对 | 🟡 进行中 | 逐项状态见 `docs/final/scope-and-deferrals.md` |
 
 ## 三、Sprint 评审
 
@@ -40,12 +43,16 @@
 |---|---|---|
 | W14 初 | 18 | 18 |
 | W14 末 | 9 | 9 |
-| W15 末 | 0 | 0 |
+| W15 末 | 7 | 0 |
+
+> 说明：W15 末仍有 2 项未完成 —— 演示视频与最终交付物核对。
+> 点数拆分： 「答辩 PPT 与演示视频」按 5 点计，其中 PPT 已完成计 0 点剩余、视频未拍计 5 点剩余；核对项计 2 点。5 + 2 = 7 点，故不画到 0。
+> 此前版本把曲线画到 0，与结果表不一致，2026-11-26 修正。
 
 ```mermaid
 xychart-beta
     title "Sprint 4 燃尽"
     x-axis [W14初, W14末, W15末]
     y-axis "剩余点数" 0 --> 18
-    line [18, 9, 0]
+    line [18, 9, 7]
 ```

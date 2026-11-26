@@ -49,10 +49,10 @@ cd backend && mvn verify
 | --- | --- | --- |
 | Surefire 单元测试 | 122 个，0 失败 | v1.2.0 main CI 日志 |
 | Failsafe 集成测试 | 3 个，0 失败 | 同上 |
-| 领域层覆盖率 | 77.2%（四模块 80.7 / 79.5 / 75.7 / 72.5） | `docs/final/quality-report.md` |
+| 领域层覆盖率 | 77.2%（四模块 80.7 / 79.5 / 75.7 / 72.5；2026-10-29 采集，main @ `3592134`） | `docs/final/quality-report.md` |
 | 覆盖率门禁 | 各模块 ≥ 70%，低于即构建失败 | `backend/pom.xml` |
 | ArchUnit 架构规则 | 8 条（分层依赖、跨上下文、无环、实体表名前缀等） | `ArchitectureTest.java` |
-| CI | 后端门禁 + 前端 lint / typecheck / build + main 分支镜像构建 | `.github/workflows/ci.yml` |
+| CI | 后端门禁（测试 / ArchUnit / 覆盖率 / 集成测试）+ 前端 typecheck / build + 仅 main 构建镜像 | `.github/workflows/ci.yml` |
 
 质量数据的历史版本（v1.1.0 的 117 个测试）保留在 `docs/final/quality-report.md` 中，未被覆盖。
 
