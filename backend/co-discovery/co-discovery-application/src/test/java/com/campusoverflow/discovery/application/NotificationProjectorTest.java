@@ -95,12 +95,14 @@ class NotificationProjectorTest {
     }
 
     @Test
-    void badgeNotificationHasNullLink() {
+    void badgeNotificationLinksToLeaderboard() {
         identity.add(new UserSummary(9, "回答者", Role.STUDENT, true, "计科"));
         projector.on(new BadgeAwardedEvent("evt-6", NOW, 9, "B1", "金牌答主"));
         assertThat(repo.saved).hasSize(1);
         assertThat(repo.saved.get(0).type()).isEqualTo(NotificationType.BADGE_AWARDED);
-        assertThat(repo.saved.get(0).link()).isNull();
+        // 这条断言原来写的是 isNull()，把「徽章通知没有跳转地址」当成了正确行为；
+        // 结果前端 NotificationsPage 对 link 直接调 replace，遇到 null 整页白屏。
+        assertThat(repo.saved.get(0).link()).isEqualTo("/leaderboard");
     }
 
     // ---- fakes ----

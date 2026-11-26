@@ -115,7 +115,7 @@ export interface Notification {
   id: number
   type: string
   title: string
-  link: string
+  link?: string | null
   read: boolean
   createdAt: string
 }

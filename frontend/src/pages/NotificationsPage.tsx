@@ -44,10 +44,18 @@ export function NotificationsPage() {
       <ul className="plain">
         {items.map((n) => (
           <li key={n.id} className={n.read ? 'muted' : ''}>
-            <Link to={n.link.replace(/^\//, '/')} onClick={() => markRead(n)}>
-              {!n.read && <span className="dot" aria-label="未读" />}
-              {n.title}
-            </Link>
+            {n.link ? (
+              <Link to={n.link} onClick={() => markRead(n)}>
+                {!n.read && <span className="dot" aria-label="未读" />}
+                {n.title}
+              </Link>
+            ) : (
+              // 历史数据里可能有 link 为空的记录，不能直接调 replace 否则整页白屏
+              <span onClick={() => markRead(n)}>
+                {!n.read && <span className="dot" aria-label="未读" />}
+                {n.title}
+              </span>
+            )}
             <span className="muted">
               {' '}
               · {new Date(n.createdAt).toLocaleString('zh-CN')}
