@@ -1,0 +1,15 @@
+# 本地开发默认配置。
+#
+# 目的：让「IDE 里直接 Run」就能跑起来，不用记一堆启动参数。
+#
+# 1) 固定 8080：环境变量里 SERVER_PORT 可能被其它工具占用，显式写死避免端口漂移。
+# 2) 排除 Redis 会话：本机未安装 Redis 时，Spring Session 会在登录阶段抛
+#    RedisConnectionException，表现为「登录 500 / 服务器开小差了」。
+#    开发环境用 Tomcat 内存会话即可，重启后需重新登录，但功能完整。
+#    若本机有 Redis 且想验证会话共享，用 --spring.autoconfigure.exclude= 覆盖为空即可。
+server:
+  port: 8080
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.session.SessionAutoConfiguration
